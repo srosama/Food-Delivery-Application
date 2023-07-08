@@ -17,12 +17,12 @@ Key Features:
 
 Technologies Used:
 
-    Programming Languages: Javascrpit, Python
-    Frameworks: Django, DRF
-    Database: Mysql
-    Cloud: AWS, Heroku, Railway
-    Geolocation Services: (soon)
-    Payment Gateway Integration: Strip (SOON)
+    *Programming Languages: Javascrpit, Python
+    *Frameworks: Django, DRF
+    *Database: Mysql
+    *Cloud: AWS, Heroku, Railway
+    *Geolocation Services: (soon)
+    *Payment Gateway Integration: Strip (SOON)
 
 <h1>Project overview</h1>
 
@@ -38,9 +38,9 @@ Technologies Used:
 
 ![5 2 1](https://github.com/srosama/Food-Delivery-Application/assets/117456465/60e2d1e3-90a4-46ab-a0a6-31de7801c4b4)
 
-![8 1 1 1](https://github.com/srosama/Food-Delivery-Application/assets/117456465/cc4211f7-8917-4032-b210-74935db1995d)
-
 ![2 2 1 1](https://github.com/srosama/Food-Delivery-Application/assets/117456465/b829964f-5085-4050-8e83-3567daa7aaf5)
+
+![8 1 1 1](https://github.com/srosama/Food-Delivery-Application/assets/117456465/cc4211f7-8917-4032-b210-74935db1995d)
 
 
 
