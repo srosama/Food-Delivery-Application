@@ -1,3 +1,5 @@
 from django.db import models
 
-# Create your models here.
+
+#Build a customer > phone, full-name, img
+#Build our custom users model > email, password, conform password,

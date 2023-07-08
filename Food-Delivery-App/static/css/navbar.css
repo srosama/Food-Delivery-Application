@@ -2,16 +2,22 @@
     font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
+
+#logo{
+    cursor: pointer;
+}
+
 nav{
     display: flex;
     justify-content: space-between;
-    padding-left: 60px;
-    padding-right: 60px;
+    padding-left: 110px;
+    padding-right: 145px;
 }
 hr{
     background: #ff4444;
+    opacity: 0.4;
     position: relative;
-    bottom: 30px;
+    bottom: 36px;
 }
 
 .ulClass{
@@ -22,25 +28,70 @@ hr{
 }
 
 .ulClass > li > a{
-    color: rgb(171, 40, 40);
+    color: rgb(0, 0, 0);
+    opacity: 0.7;
     text-decoration: none;
 }
 .ulClass > li{
     font-weight: 500;
     padding: 10px;
     font-size: 13.9px;
+    position: relative;
+    bottom:5px;
 }
 
 
 
 
 #site-search{
-    border-radius: 40px;
-    background-color: gray;
-
-
+    background-color: rgb(216, 224, 239) ;
+    color: rgb(122, 132, 150);
+    opacity: 0.5;
+    width: 250px;
+    height: 50px;
+    color: rgb(13, 27, 50);
+    border-radius: 10px ;
+    border: 1px solid rgb(216, 224, 239);
+    text-align: left;
+    position: relative;
+    right: 140px;
+    bottom: -24px;
 }
 
 #seBut{
+    position: relative;
+    right: 175px;
+    top:  24px;
 
+    background: none;
+    border: none;
+    color: rgb(147, 159, 180);
 }
+
+
+
+.glow{
+    
+    color: rgb(105, 119, 249) !important;
+}
+
+a:hover{
+    color: rgb(105, 119, 249) !important;
+    transition: all ease 0.5s;
+}
+
+
+
+
+
+
+/* Cart */
+
+.avater {
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    border-radius: 15px;
+    position: relative;
+    bottom: 10px;
+  }
