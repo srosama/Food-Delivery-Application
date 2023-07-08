@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodHere</title>
+    <!-- Links -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/regular.min.css">
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'fontawesomefree/js/fontawesome.js' %}"></script>
+    <script src="{% static 'fontawesomefree/js/solid.js' %}"></script>
+    <script src="{% static 'fontawesomefree/js/brands.js' %}"></script>
+</head>
+<body>
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <style>       
+        hr{
+            height: 1px;
+            background-color: #ccc;
+            border: none;
+        }
+    </style>
+
+    <nav>
+
+        
+        <h1 style="font-size: 20px;">Food <br> <span style="color: rgb(34, 50, 226);">delivery</span></h1>
+
+        <div class="serachbar">
+            <input type="search" id="site-search" name="q" placeholder="search">            
+            <button type="submit" id="seBut"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <ul class="ulClass">
+            <li><a href="#">Restaurants</a></li>
+            <li><a href="#">Deals</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Create A Account</a></li>
+        </ul>
+    </nav>
+    <hr class="underlineDiv">
+
+</body>
+</html>

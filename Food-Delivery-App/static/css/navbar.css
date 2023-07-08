@@ -22,7 +22,7 @@ hr{
 }
 
 .ulClass > li > a{
-    color: black;
+    color: rgb(171, 40, 40);
     text-decoration: none;
 }
 .ulClass > li{
@@ -31,16 +31,16 @@ hr{
     font-size: 13.9px;
 }
 
-label {
-    display: block;
-    font: 1rem 'Fira Sans', sans-serif;
-}
 
-input,
-label {
-    margin: 0.4rem 0;
-}
+
 
 #site-search{
-    
+    border-radius: 40px;
+    background-color: gray;
+
+
+}
+
+#seBut{
+
 }
