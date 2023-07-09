@@ -82,10 +82,6 @@ class Regsterion(APIView):
         }
 
         return response
-
-
-
-
 class PasswordContextMixin:
     extra_context = None
 
@@ -105,7 +101,7 @@ class PasswordResetView(PasswordContextMixin, FormView):
     html_email_template_name = None
     subject_template_name = "registration/password_reset_subject.txt"
     success_url = reverse_lazy("password_reset_done")
-    template_name = "accounts/password_reset.html"
+    template_name = "registration/password_reset_form.html"
     title = ("Password reset")
     token_generator = default_token_generator
 
@@ -126,6 +122,3 @@ class PasswordResetView(PasswordContextMixin, FormView):
         }
         form.save(**opts)
         return super().form_valid(form)
-    
-    def post(self,request):
-        return redirect('login')

@@ -18,12 +18,12 @@ from django.utils.translation import gettext_lazy as _
 
 class PasswordResetForm(forms.Form):
     email = forms.EmailField(
-        label=_("Email"),
+        label=_("Test"),
         max_length=254,
-        widget=forms.EmailInput(attrs={"autocomplete": "email"}),
+        widget=forms.EmailInput(attrs={"autocomplete": "email", 'class':'inp'}),
     )
 
-    def send_mail(
+    def send_mail( 
         self,
         subject_template_name,
         email_template_name,
