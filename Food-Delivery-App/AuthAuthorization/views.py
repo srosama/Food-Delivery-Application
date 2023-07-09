@@ -42,7 +42,6 @@ class Regsterion(APIView):
         serilzer.save()
         
         return Response(serilzer.data)
-class LoginApi(APIView):
     def post(self, req):
         email = req.data['email']
         password = req.data['password']

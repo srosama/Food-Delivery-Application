@@ -15,7 +15,13 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+#SMTP Conf
 
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST_USER='vougblog@gmail.com'
+EMAIL_HOST_PASSWORD='vtbncjxyaahwsjmg'
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
 
 # Application definition
 
