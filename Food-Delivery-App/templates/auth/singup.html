@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Singnup</title>
+    <title>Singup</title>
 
     <!-- link awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
@@ -13,32 +13,61 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
 </head>
-<body>
+<body style="background-color: rgb(245, 246, 250);">
     <div class="contanier">
-        <div class="text" style="background: linear-gradient(rgb(3, 22, 165), rgb(105, 123, 255));">
+        <div class="text" style="background: linear-gradient(rgb(105, 123, 255), rgb(3, 22, 165));  width: 40% !important;">
             <img src="{% static 'img/login.png'%} " style="width: 600px !important;" alt="">
             <h1 style="font-size: 30px !important;">Leave reviews for all measl</h1>
             <p>Let the Best of International Business News come to you.</p>
         </div>
 
-        <div class="box-login">
+
+        <div class="box-login" style="width: 60% !important;">
             <h1 style="font-size: 20px; position: relative; left: 90px; top: 30px; cursor: pointer;  " id="logo" ><a href="{%url 'home'%}" style="text-decoration:  none; color: black;">Food</a> <br> <span style="color: rgb(34, 50, 226);">delivery</span></h1>
             <div class="login">
                 <div class="header">
                     <img src="image/logo.png" alt="" class="logo">
                     {% include "components/messages.html" %}
-                    <h2 style="text-align: left !important; font-size: 50px;">Singnup</h2>
+                    <h2 style="text-align: left !important; font-size: 50px;">Sign up</h2>
                     <p style="width: 410px; text-align: left; color: gray; opacity: 0.5;">Register to create your restaurant or personal account</p>
                 </div>
 
-                <form method="post">  {% csrf_token %}
-                    <input type="radio" id="html" name="fav_language" value="HTML">
+                <form method="post">
+                    {% load static %}
+                    <link rel="stylesheet" type="text/css" href="{% static 'css/singup.css' %}"/>
+                    <div class="restaurant">
+                        <div class="img">
+                            <img src="{% static 'img/cart/carts-black.png'%}" alt="">
+                        </div>
+                        <div class="content">
+                            <input type="radio" name="restaurant" 
+                            value="Restaurant"checked 
+                            class="radio" id="lang-1">
+                            <label class="label">Restaurant <br><span id="p-r">Manage your own Restaurant</span></label>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="restaurant">
+                        <div class="img">
+                            <img src="{% static 'img/cart/profile-black.png'%}" alt="">
+                        </div>
+                        <div class="content">
+                            <input type="radio" name="restaurant"  value="Restaurant"
+                            checked class="radio" id="lang-2">
+                            <label class="label-2">Personal <br><span id="p-r">Keep your orders on one place</span></label>
+                        </div>
+                    </div>
+
+                    
+                    <button style="
+                    border-radius: 10px; position: relative; top: 80px; width: 504px !important; ">Continue</button>
                 </form>
 
-
-
-            </div>
         </div>
+
     </div>
+
 </body>
 </html>
