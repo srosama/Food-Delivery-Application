@@ -76,38 +76,22 @@ class Regsterion(APIView):
     def get(self, req):
         return render(req, 'auth/singup.html')
     def post(self, req):
-        serilzer = UserSer(data=req.data)
-        serilzer.is_valid(raise_exception=True)
-        serilzer.save()
-        
-        return Response(serilzer.data)
+        return redirect('singup-details')
+    
+
+class RegsterionDetails(APIView):
+    def get(self, req):
+        return render(req, 'auth/user-details.html')
     def post(self, req):
-        email = req.data['email']
-        password = req.data['password']
+        serilzer = UserSer(data=req.data)
+        if serilzer.is_valid():
+            serilzer.is_valid(raise_exception=True)
+            serilzer.save()
+            messages.success(req, 'You have succfully create your account')
+            return redirect('home')
+        else:
+            messages.error(req, "You have enter bad input", extra_tags='danger')
 
-        user = User.objects.filter(email=email).first()
-
-        if user is None:
-            raise AuthenticationFailed('bAD LOGIN')
-        
-        if not user.check_password(password):
-            raise AuthenticationFailed('Incoorected password')
-        
-        payload = {
-            'id':user.id,
-            'exp':datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
-            'iat':datetime.datetime.utcnow()
-        }
-
-        token = jwt.encode(payload, 'secret' , algorithm='HS256')
-
-        response = Response()
-        response.set_cookie(key='jwt', value=token, httponly=True)
-        response.data = {
-            "jwt":token
-        }
-
-        return response
 class PasswordContextMixin:
     extra_context = None
 

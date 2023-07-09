@@ -6,6 +6,7 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('login/', view=Login.as_view(), name='login'),
     path('singup/', view=Regsterion.as_view(), name='singup'),
+    path('singup-details/', view=RegsterionDetails.as_view(), name='singup-details'),
     
     #Auth the user
     path('reset_password/', PasswordResetView.as_view(), name="reset_password"),

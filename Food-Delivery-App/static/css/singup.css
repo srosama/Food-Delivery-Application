@@ -12,8 +12,9 @@ form label::before{
     content: '';
 }
 
-form input[type="radio"]:checked + label::after{
+.lang-1[type="radio"]:checked + label::after{
     content: '';
+    background-color: green;
 }
 
 .label{
@@ -22,10 +23,7 @@ form input[type="radio"]:checked + label::after{
     font-size: 14px;
 }
 
-#lang-1:checked ~ .label
-{
-    background-color: red;
-}
+
 
 .restaurant{
     /* border: 2px #6788ff solid; */

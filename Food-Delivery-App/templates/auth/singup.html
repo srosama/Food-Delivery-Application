@@ -32,7 +32,7 @@
                     <p style="width: 410px; text-align: left; color: gray; opacity: 0.5;">Register to create your restaurant or personal account</p>
                 </div>
 
-                <form method="post">
+                <form  action="{% url 'singup-details' %}">
                     {% load static %}
                     <link rel="stylesheet" type="text/css" href="{% static 'css/singup.css' %}"/>
                     <div class="restaurant">
@@ -61,8 +61,7 @@
                     </div>
 
                     
-                    <button style="
-                    border-radius: 10px; position: relative; top: 80px; width: 504px !important; ">Continue</button>
+                    <button style=" border-radius: 10px; position: relative; top: 80px; width: 504px !important; ">Continue</button>
                 </form>
 
         </div>

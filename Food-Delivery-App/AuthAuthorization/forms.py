@@ -30,44 +30,6 @@ def _unicode_ci_compare(s1, s2):
     )
 
 
-class ReadOnlyPasswordHashWidget(forms.Widget):
-    template_name = "auth/widgets/read_only_password_hash.html"
-    read_only = True
-
-    def get_context(self, name, value, attrs):
-        context = super().get_context(name, value, attrs)
-        summary = []
-        if not value or value.startswith(UNUSABLE_PASSWORD_PREFIX):
-            summary.append({"label": gettext("No password set.")})
-        else:
-            try:
-                hasher = identify_hasher(value)
-            except ValueError:
-                summary.append(
-                    {
-                        "label": gettext(
-                            "Invalid password format or unknown hashing algorithm."
-                        )
-                    }
-                )
-            else:
-                for key, value_ in hasher.safe_summary(value).items():
-                    summary.append({"label": gettext(key), "value": value_})
-        context["summary"] = summary
-        return context
-
-    def id_for_label(self, id_):
-        return None
-class ReadOnlyPasswordHashField(forms.Field):
-    widget = ReadOnlyPasswordHashWidget
-
-    def __init__(self, *args, **kwargs):
-        kwargs.setdefault("required", False)
-        kwargs.setdefault("disabled", True)
-        super().__init__(*args, **kwargs)
-
-
-
 
 
 class PasswordResetForm(forms.Form):
@@ -165,8 +127,6 @@ class PasswordResetForm(forms.Form):
                 user_email,
                 html_email_template_name=html_email_template_name,
             )
-
-
 class SetPasswordForm(forms.Form):
     error_messages = {
         "password_mismatch": _("The two password fields didn’t match."),
@@ -202,8 +162,6 @@ class SetPasswordForm(forms.Form):
         if commit:
             self.user.save()
         return self.user
-
-
 class PasswordChangeForm(SetPasswordForm):
     """
     A form that lets a user change their password by entering their old
@@ -237,8 +195,6 @@ class PasswordChangeForm(SetPasswordForm):
                 code="password_incorrect",
             )
         return old_password
-
-
 class AdminPasswordChangeForm(forms.Form):
     """
     A form used to change the password of a user in the admin interface.
@@ -293,3 +249,6 @@ class AdminPasswordChangeForm(forms.Form):
             if name not in data:
                 return []
         return ["password"]
+    
+
+
