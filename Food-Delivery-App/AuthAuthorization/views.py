@@ -8,10 +8,14 @@ import jwt, datetime
 from django.contrib.auth import authenticate, login, logout 
 from django.shortcuts import resolve_url
 from django.urls import reverse_lazy
-from django.utils.decorators import method_decorator
+from django.contrib.auth import update_session_auth_hash
 
-#Forms
+#Froms
 from .forms import PasswordResetForm
+
+#Decoretors
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 #Views
 from django.views.generic.edit import FormView
