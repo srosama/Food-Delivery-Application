@@ -2,10 +2,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login Page</title>
+
+    <!-- link awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+    <!-- Link file CSS -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
 </head>
 <body>
-    <H1>login page</H1>
+    <div class="contanier">
+
+        <div class="box-login">
+            <div class="login">
+                <div class="header">
+                    <img src="image/logo.png" alt="" class="logo">
+                    <h2 style="text-align: left !important; font-size: 50px;">Login</h2>
+                </div>
+
+                <form action="">
+
+                    <label for="email">Email</label>
+                    <div class="inp">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" placeholder="Enter Your Email">
+                    </div>
+
+                    <label for="password">Password</label>
+                    <div class="inp">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Enter Your Password">
+                    </div>
+
+                    <div class="check-box">
+                        <div class="check">
+                            <input type="checkbox">
+                            <span>Remember Me</span>
+                        </div>
+                        <a href="#" class="forg">Forgot Password?</a>
+                    </div>
+
+                    <button>Login</button>
+                </form>
+
+                <span class="line-sign">or</span>
+
+                <div class="sign-soc">
+                    <div class="box">
+                        <a href="#"><img src="image/google.png" alt=""></a>
+                    </div>
+
+                    <div class="box">
+                        <a href="#"><img src="image/instg.png" alt=""></a>
+                    </div>
+
+                    <div class="box">
+                        <a href="#"><img src="image/facebook.png" alt=""></a>
+                    </div>
+                </div>
+
+                <p class="creat-ac">Don't Have an account? <a href="#">Creat Account</a></p>
+            </div>
+        </div>
+        <div class="text">
+            <img src="image/imgtext.png" alt="">
+            <h1>Business</h1>
+            <p>Let the Best of International Business News come to you.</p>
+        </div>
+
+    </div>
 </body>
 </html>
