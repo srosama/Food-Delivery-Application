@@ -114,10 +114,12 @@ form .check-box .check span{
 }
 form .check-box .forg{
     color: #6788ff;
+    text-align: center;
+    
 }
 form button{
     width: 100%;
-    padding: 15px 0;
+    padding: 10px 0;
     background-color: rgb(78, 96, 255);
     box-shadow: 1px 1px 10px rgb(78, 96, 255);
     color: #fff;
@@ -168,6 +170,9 @@ form button:hover{
 .login .creat-ac{
     font-size: 14px;
     color: #242424;
+    position: absolute;
+    bottom: 0px;
+    left: 20px;
 }
 .login .creat-ac a{
     font-size: 16px;

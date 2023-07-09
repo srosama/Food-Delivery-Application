@@ -15,61 +15,48 @@
 </head>
 <body>
     <div class="contanier">
-
         <div class="box-login">
+            <h1 style="font-size: 20px; position: relative; left: 90px; top: 30px; cursor: pointer;  " id="logo" ><a href="{%url 'home'%}" style="text-decoration:  none; color: black;">Food</a> <br> <span style="color: rgb(34, 50, 226);">delivery</span></h1>
             <div class="login">
                 <div class="header">
                     <img src="image/logo.png" alt="" class="logo">
+                    {% include "components/messages.html" %}
                     <h2 style="text-align: left !important; font-size: 50px;">Login</h2>
                 </div>
 
-                <form action="">
-
+                <form method="post">  {% csrf_token %}
                     <label for="email">Email</label>
                     <div class="inp">
-                        <i class="fa-solid fa-envelope"></i>
-                        <input type="email" placeholder="Enter Your Email">
+                        <input type="email" name="email" placeholder="name@example.com" style="border-radius: 10px; ">
                     </div>
 
                     <label for="password">Password</label>
                     <div class="inp">
-                        <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Enter Your Password">
+                        <input type="password" name="password" placeholder="Enter Your Password" style="
+                        border-radius: 10px;
+                    ">
                     </div>
 
-                    <div class="check-box">
-                        <div class="check">
+                    <div class="check-box" >
+                        <div class="check" style="visibility: hidden;">
                             <input type="checkbox">
                             <span>Remember Me</span>
                         </div>
-                        <a href="{% url 'reset_password'%}" class="forg">Forgot Password?</a>
+                        <a href="{% url 'reset_password'%}" class="forg" style="text-align: center !important; position: relative; right: 154px; top: 160px;" >Forgot Password?</a>
                     </div>
 
-                    <button>Login</button>
+                    <button style="
+                    border-radius: 10px; position: relative; bottom: 50px;">Login</button>
                 </form>
 
-                <span class="line-sign">or</span>
 
-                <div class="sign-soc">
-                    <div class="box">
-                        <a href="#"><img src="image/google.png" alt=""></a>
-                    </div>
 
-                    <div class="box">
-                        <a href="#"><img src="image/instg.png" alt=""></a>
-                    </div>
-
-                    <div class="box">
-                        <a href="#"><img src="image/facebook.png" alt=""></a>
-                    </div>
-                </div>
-
-                <p class="creat-ac">Don't Have an account? <a href="#">Creat Account</a></p>
+                <p class="creat-ac" style="position: absolute; bottom: 50px; left: 260px;">Don't Have an account? <a href="#">Creat Account</a></p>
             </div>
         </div>
-        <div class="text">
-            <img src="image/imgtext.png" alt="">
-            <h1>Business</h1>
+        <div class="text" style="background: linear-gradient(rgb(105, 123, 255), rgb(3, 22, 165));">
+            <img src="{% static 'img/login.png'%} " style="width: 600px !important;" alt="">
+            <h1 style="font-size: 30px !important;">Leave reviews for all measl</h1>
             <p>Let the Best of International Business News come to you.</p>
         </div>
 

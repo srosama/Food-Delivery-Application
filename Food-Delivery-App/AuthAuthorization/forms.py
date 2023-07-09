@@ -73,7 +73,7 @@ class ReadOnlyPasswordHashField(forms.Field):
 class PasswordResetForm(forms.Form):
     email = forms.EmailField(
         max_length=254,
-        widget=forms.EmailInput(attrs={"autocomplete": "email", "type":"email", "placeholder":"Enter Your Email", "class":"inp", "name":"email"}),
+        widget=forms.EmailInput(attrs={"autocomplete": "email", "type":"email", "placeholder":"name@example.com", "class":"inp", "name":"email"}),
     )
 
     def send_mail(

@@ -10,7 +10,7 @@
       <!-- messages  -->
       {% if messages %}
       {%for message in messages%}
-      <div class="alert alert-{{message.tags}} alert-dismissible fade show align-top" role="alert" style="width: 550px; position: absolute; right: 10%; top: 190px;">
+      <div class="alert alert-{{message.tags}} alert-dismissible fade show align-top" role="alert">
           {{message}}
           <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="background-color: transparent; border: none; position: absolute; right: 20px;">
             <span aria-hidden="true">&times;</span>
