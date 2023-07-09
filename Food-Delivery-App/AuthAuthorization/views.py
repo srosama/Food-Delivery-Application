@@ -197,7 +197,8 @@ class PasswordResetConfirmView(PasswordContextMixin, FormView):
 
         # Display the "Password reset unsuccessful" page.
         return self.render_to_response(self.get_context_data())
-
+    
+        
     def get_user(self, uidb64):
         try:
             # urlsafe_base64_decode() decodes to bytestring
@@ -237,4 +238,13 @@ class PasswordResetConfirmView(PasswordContextMixin, FormView):
                     "validlink": False,
                 }
             )
+        return context
+
+class PasswordResetCompleteView(PasswordContextMixin, TemplateView):
+    template_name = "registration/password_reset_complete.html"
+    title = _("Password reset complete")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["login_url"] = resolve_url(settings.LOGIN_URL)
         return context

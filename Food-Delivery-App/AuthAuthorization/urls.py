@@ -16,5 +16,6 @@ urlpatterns = [
     #Change Password 
     path('rest/<uidb64>/<token>', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
 
-    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(), name="password_reset_complete"),
+    #Password Changed
+    path('reset_password_complete/', PasswordResetCompleteView.as_view(), name="password_reset_complete"),
 ]
