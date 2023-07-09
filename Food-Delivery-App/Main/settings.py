@@ -23,7 +23,6 @@ INSTALLED_APPS = [
     #My Apps
     'rest_framework',
     'AuthAuthorization',
-    'fontawesomefree',
 
     #Django Apps
     'django.contrib.admin',

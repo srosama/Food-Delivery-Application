@@ -5,7 +5,7 @@ from .models import User
 import jwt, datetime
 from django.contrib.auth import authenticate, login, logout 
 
-#Api JWT
+#Api Rest
 from rest_framework.views import APIView 
 from rest_framework.exceptions import AuthenticationFailed 
 from .serializers import UserSer
@@ -28,15 +28,11 @@ class Login(View):
         else:
             messages.success(req, 'Invaild Email Or Password',  extra_tags='danger')
             return redirect('login')
-
-
 class Logout(View):
     def get(self, request):
         logout(request)
         messages.success(request, "You Have Been Logged Out")
         return redirect('home')
-
-
 class Regsterion(APIView):
     def get(self, req):
         return render(req, 'auth/singup.html')
@@ -46,8 +42,6 @@ class Regsterion(APIView):
         serilzer.save()
         
         return Response(serilzer.data)
-
-
 class LoginApi(APIView):
     def post(self, req):
         email = req.data['email']
@@ -76,3 +70,5 @@ class LoginApi(APIView):
         }
 
         return response
+
+
