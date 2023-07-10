@@ -38,32 +38,34 @@
                         use for entering.</p>
                 </div>
 
-                <form method="post"> {% csrf_token %}
-                    <!-- Full Name -->
-                    <label for="text">Full Name</label>
-                    <div class="inp">
-                        <input type="text" name="name" placeholder="Ahmed Mouse" style="border-radius: 10px;">
-                    </div>
-
-                    <!-- Email -->
-                    <label for="email">Email</label>
-                    <div class="inp">
-                        <input type="email" name="email" placeholder="name@example.com" style="border-radius: 10px; ">
-                    </div>
-
-                    <!-- Password -->
-                    <label for="password">Password</label>
-                    <div class="inp">
-                        <input type="password" name="password" placeholder="min 8. charactres" style="
-                        border-radius: 10px;">
-                    </div>
-                    <!-- Confrom Password  -->
-                    <label for="password">Confrom Password</label>
-                    <div class="inp">
-                        <input type="password" name="cf-password" placeholder="min 8. charactres" style="
-                        border-radius: 10px;">
-                    </div>
-
+                <form method="post"> 
+                    <!-- Django-Form -->
+                    {% csrf_token %}
+                            <!-- Full Name -->
+                            <label for="text">Full Name</label>
+                            <div class="inp">
+                                <input type="text" name="name" placeholder="Ahmed Mouse" style="border-radius: 10px;">
+                            </div>
+        
+                            <!-- Email -->
+                            <label for="email">Email</label>
+                            <div class="inp">
+                                <input type="email" name="email" placeholder="name@example.com" style="border-radius: 10px; ">
+                            </div>
+        
+                            <!-- Password -->
+                            <label for="password">Password</label>
+                            <div class="inp">
+                                <input type="password" name="password" placeholder="min 8. charactres" style="
+                                border-radius: 10px;">
+                            </div>
+                            
+                            <label for="password">Confrom Password</label>
+                            <div class="inp">
+                                <input type="password" name="password2" placeholder="min 8. charactres" style="
+                                border-radius: 10px;">
+                            </div>
+                    <!-- Button -->
                     <button
                         style=" border-radius: 10px; position: relative; top: 20px; width: 504px !important; ">Create
                         Account</button>

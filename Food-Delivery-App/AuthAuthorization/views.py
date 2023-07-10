@@ -1,40 +1,49 @@
 from typing import Any
-from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
-from django.contrib import messages
-from django.views.generic import View
-from .models import User
-import jwt, datetime
+
+#Auth
 from django.contrib.auth import authenticate, login, logout 
-from django.shortcuts import resolve_url
-from django.urls import reverse_lazy
+from django.contrib.auth import login as auth_login
+from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import update_session_auth_hash
-from django.views.decorators.debug import sensitive_post_parameters
-from rest_framework.views import APIView 
 from rest_framework.exceptions import AuthenticationFailed 
+
+#Rest Framwork
+import jwt, datetime
 from .serializers import UserSer
 from rest_framework.response import Response
+from rest_framework.authtoken.models import Token
 from django.contrib.auth.tokens import default_token_generator
+
 #Databases
 from .models import User
+from .models import User, customerAccountDetails
+
 #Decoretors
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import never_cache
+from django.views.decorators.debug import sensitive_post_parameters
+
 #Views
+from rest_framework.views import APIView 
+from django.views.generic import View
 from django.views.generic.edit import FormView
 from django.views.decorators.csrf import csrf_protect
+from django.views.generic.base import TemplateView
+
 #Froms
 from .forms import PasswordResetForm, SetPasswordForm
 from urllib.parse import urlparse, urlunparse
 from django.conf import settings
 
+#User Creation Form
+from django.contrib.auth.forms import UserCreationForm
+
 # Avoid shadowing the login() and logout() views below.
 from django.contrib.auth import REDIRECT_FIELD_NAME, get_user_model
-from django.contrib.auth import login as auth_login
-from django.contrib.auth import logout as auth_logout
-from django.contrib.auth import update_session_auth_hash
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.tokens import default_token_generator
+from django.contrib import messages
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.exceptions import ImproperlyConfigured, ValidationError
 from django.http import HttpResponseRedirect, QueryDict
@@ -43,13 +52,28 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.utils.http import url_has_allowed_host_and_scheme, urlsafe_base64_decode
 from django.utils.translation import gettext_lazy as _
-from django.views.decorators.cache import never_cache
-from django.views.decorators.csrf import csrf_protect
-from django.views.decorators.debug import sensitive_post_parameters
-from django.views.generic.base import TemplateView
-from django.views.generic.edit import FormView
 
 
+
+#User Account Mangment
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Login
 class Login(View):
     def get(self, req):
         return render(req, 'auth/login.html')
@@ -62,8 +86,10 @@ class Login(View):
         
         if user is not None:
             login(req, user)
+            userDeatials = customerAccountDetails.objects.all()
+            context = {"phone":userDeatials}
             messages.success(req, 'Login Sccuffule')
-            return redirect('home')
+            return render(req, 'home.html', context)   
         else:
             messages.success(req, 'Invaild Email Or Password',  extra_tags='danger')
             return redirect('login')
@@ -74,30 +100,61 @@ class Logout(View):
         return redirect('home')
 
 
-class Regsterion(APIView):
+
+#Sing up
+class RegsterionAPI(APIView):
     def get(self, req):
         return render(req, 'auth/singup.html')
     def post(self, req):
         return redirect('singup-details')
-    
-
-class RegsterionDetails(APIView):
+class RegsterionDetailsAPI(APIView):
     def get(self, req):
         return render(req, 'auth/user-details.html')
+
     def post(self, req):
         serilzer = UserSer(data=req.data)
+        serilzer.is_valid(raise_exception=True)
         if serilzer.is_valid():
-            serilzer.is_valid(raise_exception=True)
             serilzer.save()
             messages.success(req, 'You have succfully create your account')
             return redirect('home')
-        else:
+        else:          
+            data = serilzer.errors
             messages.error(req, "You have enter bad input", extra_tags='danger')
+            return Response(data)
+class BasicRegsterion(TemplateView):
+   #Get 
+   def get(self, req):
+      form = UserCreationForm()
+      context = {"form":form}
+      return render(req, 'auth/user-details.html', context)
 
-
-
-
-
+   #Post     
+   def post(self, req):
+       fullName = req.POST['name']       
+       email = req.POST['email']       
+       password = req.POST['password']       
+       password2 = req.POST['password2']    
+       masater = [fullName, email, password,password2] 
+       #Password Simple Vaildtion => Add Regix !important 
+       if password != password2:
+           messages.error(req, "Password Not Mattches plz check it again ".title(), extra_tags='danger')
+           return redirect('singup-details')
+       if len(password) < 8:
+           messages.error(req, "Password Should be above 8".title(), extra_tags='danger')
+           return redirect('singup-details')
+       
+       if User.objects.filter(email=email):
+           messages.error(req, "email already in use, if this is you plz login".title(), extra_tags='danger')
+           return redirect('singup-details')
+       
+       userSave = User.objects._create_user(email=email,password=password,fullName=fullName)
+       userSave.save()
+       login(req, userSave)
+       userDeatials = customerAccountDetails.objects.all()
+       context = {"phone":userDeatials}
+       messages.success(req, "You have successfully created your account".title())
+       return render(req, 'home.html', context)       
 
 
 
@@ -149,9 +206,7 @@ class PasswordResetView(PasswordContextMixin, FormView):
             super().form_valid(form)
             messages.success(request, 'We Have Sent you a email to reset the password')
             return redirect('password_reset_done')
-      
 INTERNAL_RESET_SESSION_TOKEN = "_password_reset_token"
-
 class PasswordResetConfirmView(PasswordContextMixin, FormView):
     form_class = SetPasswordForm
     post_reset_login = False
@@ -233,7 +288,6 @@ class PasswordResetConfirmView(PasswordContextMixin, FormView):
                 }
             )
         return context
-
 class PasswordResetCompleteView(PasswordContextMixin, TemplateView):
     template_name = "registration/password_reset_complete.html"
     title = _("Password reset complete")

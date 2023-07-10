@@ -2,7 +2,10 @@ from typing import Any, Optional
 from django.db import models
 from django.contrib.auth.models import UserManager, PermissionsMixin, AbstractBaseUser, AbstractUser
 from django.utils import timezone
-
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from rest_framework.authtoken.models import Token
+from django.conf import settings
 #Build a customer > phone, full-name, img
 
 
@@ -30,7 +33,6 @@ class CustomUserManger(UserManager):
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(blank=True, default='', unique=True)
     fullName = models.CharField(max_length=255, blank=True, default='')
-    password = models.CharField(max_length=255)
 
     is_active = models.BooleanField(default=True)
     is_superuser = models.BooleanField(default=False)
@@ -56,5 +58,25 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.fullName or self.email.split('@')[0]
         
 
-class customer(models.Model):
-    ...
+
+class customerAccountDetails(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    phone_number = models.CharField(max_length=20, null=True)
+
+    def __str__(self):
+        return self.user.fullName
+
+
+
+# class customerAddress(models.Model):
+#     country
+#     State
+#     City
+#     Address_line_1
+#     Address_line_2
+    
+# class customerPayment(models.Model):
+#     card_number
+#     expiration
+#     cvc
+#     cardholder
