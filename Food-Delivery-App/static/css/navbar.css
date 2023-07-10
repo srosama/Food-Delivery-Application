@@ -1,0 +1,162 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    outline: none;
+    border:none;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: 'Prompt', sans-serif;}
+
+body{
+    /* font-family: ; */
+    overflow: hidden;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+nav{
+    width: 100%;
+    background-color: white;
+    padding: 0.7rem 0;
+    top: 0;
+    border-bottom: 0.1px solid rgba(0, 0, 0, 0.065) ;
+    z-index: 10;
+    box-shadow: 10px 10px 20px rgba(223, 223, 223, 0.353);
+
+}
+
+nav .container{
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between ;
+}
+
+.search-bar{
+    background-color: hsl(252, 30%, 95%);
+    border-radius:0.8rem ;
+    padding: 0.6rem 1rem;
+}
+
+.search-bar input[type="search"]{
+    background: transparent;
+    width: 30vw;
+    margin-left:1rem ;
+    font-size: 0.9rem;
+    color: hsl(252, 30%, 17%);
+}
+
+#s-icon{
+    color: hsl(0, 0%, 0%) !important;
+    opacity: 0.5;
+}
+#s-icon:hover{
+    opacity: 100%;
+    color: black;
+}
+
+nav .button{
+    display: flex;
+    align-items: center;
+    font-size: 14.5px;
+    gap: 2rem;
+}
+
+nav .button > p{
+    cursor: pointer;
+    color: black;
+    transition: all 0.4s ease;
+
+}
+nav .button > p > a{
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    transition: all 0.4s ease;
+
+}
+nav .button > p:hover{
+    transition: all 0.4s ease;
+    color: rgb(78, 96, 255) !important;
+    
+}
+nav .button > p > a:hover{
+    transition: all 0.4s ease;
+    color: rgb(78, 96, 255) !important;
+    
+}
+
+
+.btn> a{
+    display: inline;
+    padding: 0.8rem;
+    font-weight: 500;
+    border-radius: 1rem;
+    transition: all 0.4s ease;
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+    background-color: rgb(243, 244, 255);
+    transition: all 300ms ease;
+}
+.btn> a:hover{
+    color: rgb(78, 96, 255) !important;
+    transition: all 0.4s ease;
+
+}
+
+.logo{
+    font-weight: bold;
+}
+.logo > span{
+    color: rgb(78, 96, 255);
+}
+
+
+
+
+ .dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    transition: 5s all;
+
+  }
+  
+  .dropdown-content {
+    display: none;
+    transition: 5s all;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {background-color: #3e8e41;} 

@@ -5,6 +5,7 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('login/', view=Login.as_view(), name='login'),
+    path('logout/', view=Logout.as_view(), name='logout'),
     path('singup/', view=RegsterionAPI.as_view(), name='singup'),
     path('singup-details/', view=BasicRegsterion.as_view(), name='singup-details'),
     

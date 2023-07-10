@@ -3,15 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Food-Delivery-App/static/css/navbar.css">
+    <!-- Css File -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+        <!-- Bootstarp  -->
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <!-- fontaswaon cdn  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap" rel="stylesheet">        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <nav>
         <div class="container">
+            <h1 class="logo">Food <br><span>Deleviry</span></h1>
             <div class="search-bar">
-                
+                <input type="search" name="search" placeholder="Search">
+                <i class="fa-solid fa-magnifying-glass"id="s-icon"></i>
+            </div>
+
+            <div class="button">
+                {% if user.is_authenticated%}
+                    <p><a href="#"></a>Restaurants</p>
+                    <p><a href="#"></a>Deals</p>
+                    <p><a href="#"></a>My Orders</p>
+                    <button class="btn"><a href=""> <i class="fa-solid fa-bag-shopping" style="width: 20px; color: rgb(78, 96, 255) !important; font-size: 19px !important; position: relative; top: 4px;"></i></a></button>
+                    <div class="dropdown">
+                    <button class="btn"><a href=""> <i class="fa-regular fa-user" style="width: 20px; color: rgb(78, 96, 255) !important; font-size: 19px !important; position: relative; top: 4px;"></i></a></button>
+                    <div class="dropdown-content">
+                          <a href="#">{{user.email}}</a>
+                          <a href="#">Manage Account</a>
+                          <a href="{%url 'logout'%}" style="color: rgb(255, 92, 96);">Log out</a>
+                        </div>
+                      </div> 
+                {% else %}
+                <p><a href="#"></a>Restaurants</p>
+                <p><a href="#"></a>Deals</p>
+                <p><a href="{%url 'login'%}">Login</a></p>
+                <button class="btn"><a href="{%url 'singup'%}">Create Account</a></button>
+                {% endif %}
             </div>
         </div>
     </nav>
+    
 </body>
 </html>
