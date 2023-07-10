@@ -1,78 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" >
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food delivery</title>
-    {% load static %}
-
-    <link rel="icon" type="image/x-icon" href="{% static 'img/bibimbap.png' %}">
-    
-    
-    <!-- Links -->
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/regular.min.css">
-    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
-    <script src="{% static 'fontawesomefree/js/fontawesome.js' %}"></script>
-    <script src="{% static 'fontawesomefree/js/solid.js' %}"></script>
     <link rel="stylesheet" href="/Food-Delivery-App/static/css/navbar.css">
-    <script src="{% static 'fontawesomefree/js/brands.js' %}"></script>
 </head>
 <body>
-    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
-    <style>       
-        hr{
-            height: 1px;
-            background-color: #ccc;
-            border: none;
-        }
-        #divder{
-            color: #ccc !important;
-            opacity: 0.4;  
-         }
-    </style>
-    <div class="cont">        
-        <nav>
-    
-            
-            <h1 style="font-size: 20px;" id="logo">Food <br> <span style="color: rgb(34, 50, 226);">delivery</span></h1>
-    
-            <div class="serachbar">
-                <form method="post">{%csrf_token%}
-                    
-                    <input required id="site-search" class="filter" type="search" class="filter"  placeholder="   Search"/>
-                    
-                    <button type="submit" id="seBut"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
+    <nav>
+        <div class="container">
+            <div class="search-bar">
+                
             </div>
-    
-            <ul class="ulClass">
-                {% if user.is_authenticated%}
-                    <li><a href="#" class="glow">Restaurants</a></li>
-                    <li><a href="#">Deals</a></li>
-                    <li><a href="#" id="divder"> |  </a></li>
-                    <li><a href="#">My Orders</a></li>
-                    <li><a href="#" class="cart" style="background-color:  rgb(219, 222, 250);  padding: 10px 15px 10px 15px; border-radius: 10px;"><i class="fa-solid fa-bag-shopping" style="color: rgb(78, 96, 255);" id="cart-icon"></i></a></li>
-                    <!-- Fetsh all the user data (pic) -->
-                    <li><a href="#"><img src="{% static 'img/profile.jpg' %}"  class="avater"></a></li>
-                {% else %}
-                    <li><a href="#" class="glow">Restaurants</a></li>
-                    <li><a href="#">Deals</a></li>
-                    <li><a href="#" id="divder"> |  </a></li>
-                    <li><a href="{% url 'login' %}"> Login</a></li>
-                    <li><a href="{% url 'singup'  %}">Create Account</a></li>
-                {% endif %}
-
-            </ul>
-        </nav>
-    </div>
-    <hr class="underlineDiv">
-
+        </div>
+    </nav>
 </body>
 </html>

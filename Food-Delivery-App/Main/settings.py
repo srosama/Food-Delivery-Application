@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'AuthAuthorization',
 
     #Django Apps
+    'django_countries',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

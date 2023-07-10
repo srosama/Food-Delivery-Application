@@ -24,7 +24,7 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import never_cache
 from django.views.decorators.debug import sensitive_post_parameters
-
+from .decorators import allowed_users, admin_only, unauthenticated_user
 #Views
 from rest_framework.views import APIView 
 from django.views.generic import View
@@ -49,22 +49,21 @@ from django.core.exceptions import ImproperlyConfigured, ValidationError
 from django.http import HttpResponseRedirect, QueryDict
 from django.shortcuts import resolve_url
 from django.urls import reverse_lazy
-from django.utils.decorators import method_decorator
 from django.utils.http import url_has_allowed_host_and_scheme, urlsafe_base64_decode
 from django.utils.translation import gettext_lazy as _
-
+from django.http import HttpResponse 
+from django.contrib.auth.models import Group
 
 
 #User Account Mangment
 
-
-
-
-
-
-
-
-
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['customer'])
+def userMainAccount(request):
+    user_name = request.user.email
+    print(user_name)
+    context = {'name':user_name}
+    return render(request, 'accounts/userMainpage.html',context)
 
 
 
@@ -89,7 +88,7 @@ class Login(View):
             userDeatials = customerAccountDetails.objects.all()
             context = {"phone":userDeatials}
             messages.success(req, 'Login Sccuffule')
-            return render(req, 'home.html', context)   
+            return redirect('home')   
         else:
             messages.success(req, 'Invaild Email Or Password',  extra_tags='danger')
             return redirect('login')
@@ -98,6 +97,8 @@ class Logout(View):
         logout(request)
         messages.success(request, "You Have Been Logged Out")
         return redirect('home')
+
+
 
 
 
@@ -136,6 +137,7 @@ class BasicRegsterion(TemplateView):
        password = req.POST['password']       
        password2 = req.POST['password2']    
        masater = [fullName, email, password,password2] 
+
        #Password Simple Vaildtion => Add Regix !important 
        if password != password2:
            messages.error(req, "Password Not Mattches plz check it again ".title(), extra_tags='danger')
@@ -149,12 +151,19 @@ class BasicRegsterion(TemplateView):
            return redirect('singup-details')
        
        userSave = User.objects._create_user(email=email,password=password,fullName=fullName)
+
+       #Add the user to the customer group
+       user = User.objects.get(email=email)
+       group = Group.objects.get(name="customer")
+       user.groups.add(group)
        userSave.save()
+       
+       #After singup the user
        login(req, userSave)
-       userDeatials = customerAccountDetails.objects.all()
-       context = {"phone":userDeatials}
        messages.success(req, "You have successfully created your account".title())
-       return render(req, 'home.html', context)       
+       return redirect('home')       
+
+
 
 
 
