@@ -72,6 +72,8 @@ class Logout(View):
         logout(request)
         messages.success(request, "You Have Been Logged Out")
         return redirect('home')
+
+
 class Regsterion(APIView):
     def get(self, req):
         return render(req, 'auth/singup.html')
@@ -92,6 +94,14 @@ class RegsterionDetails(APIView):
         else:
             messages.error(req, "You have enter bad input", extra_tags='danger')
 
+
+
+
+
+
+
+
+#Reset password
 class PasswordContextMixin:
     extra_context = None
 

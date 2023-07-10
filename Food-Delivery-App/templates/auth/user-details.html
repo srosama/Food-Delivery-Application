@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,58 +12,68 @@
 
     <!-- Link file CSS -->
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
 </head>
+
 <body style="background-color: rgb(245, 246, 250);">
     <div class="contanier">
-        <div class="text" style="background: linear-gradient(rgb(105, 123, 255), rgb(3, 22, 165));  width: 40% !important;">
+        <div class="text"
+            style="background: linear-gradient(rgb(105, 123, 255), rgb(3, 22, 165));  width: 40% !important;">
             <img src="{% static 'img/login.png'%} " style="width: 600px !important;" alt="">
             <h1 style="font-size: 30px !important;">Leave reviews for all measl</h1>
             <p>Let the Best of International Business News come to you.</p>
         </div>
 
 
-        <div class="box-login" style="width: 60% !important;">
-            <h1 style="font-size: 20px; position: relative; left: 90px; top: 30px; cursor: pointer;  " id="logo" ><a href="{%url 'home'%}" style="text-decoration:  none; color: black;">Food</a> <br> <span style="color: rgb(34, 50, 226);">delivery</span></h1>
+        <div class="box-login" style="width: 60% !important;  background-color: #ffffff;">
+            <h1 style="font-size: 20px; position: relative; left: 90px; top: 30px; cursor: pointer;  " id="logo"><a
+                    href="{%url 'home'%}" style="text-decoration:  none; color: black;">Food</a> <br> <span
+                    style="color: rgb(34, 50, 226);">delivery</span></h1>
             <div class="login">
                 <div class="header">
                     <img src="image/logo.png" alt="" class="logo">
                     {% include "components/messages.html" %}
                     <h2 style="text-align: left !important; font-size: 50px;">Personal details</h2>
-                    <p style="width: 410px; text-align: left; color: gray; opacity: 0.5;">Enter your data that you will use for entering.</p>
+                    <p style="width: 410px; text-align: left; color: gray; opacity: 0.5;">Enter your data that you will
+                        use for entering.</p>
                 </div>
 
-                <form method="post">  {% csrf_token %}
+                <form method="post"> {% csrf_token %}
+                    <!-- Full Name -->
+                    <label for="text">Full Name</label>
+                    <div class="inp">
+                        <input type="text" name="name" placeholder="Ahmed Mouse" style="border-radius: 10px;">
+                    </div>
 
-                                        <label for="text">Full Name</label>
-                                        <div class="inp">
-                                            <input type="text" name="name" placeholder="Ahmed Mouse" style="
-                                            border-radius: 10px;">
-                                        </div>
+                    <!-- Email -->
                     <label for="email">Email</label>
                     <div class="inp">
                         <input type="email" name="email" placeholder="name@example.com" style="border-radius: 10px; ">
                     </div>
 
+                    <!-- Password -->
                     <label for="password">Password</label>
                     <div class="inp">
                         <input type="password" name="password" placeholder="min 8. charactres" style="
                         border-radius: 10px;">
                     </div>
-
+                    <!-- Confrom Password  -->
                     <label for="password">Confrom Password</label>
                     <div class="inp">
                         <input type="password" name="cf-password" placeholder="min 8. charactres" style="
                         border-radius: 10px;">
                     </div>
-                    <button style=" border-radius: 10px; position: relative; top: 20px; width: 504px !important; ">Create Account</button>
-                    <p><a href="{% url 'singup' %}" style=" position: relative; top: 40px; left: 235px; text-align: center !important;">Back</a></p>
 
+                    <button
+                        style=" border-radius: 10px; position: relative; top: 20px; width: 504px !important; ">Create
+                        Account</button>
+                    <p><a href="{% url 'singup' %}" style=" position: relative; top: 40px; left: 235px; text-align: center !important;">Back</a></p>
                 </form>
+
+            </div>
 
         </div>
 
-    </div>
-
 </body>
+
 </html>

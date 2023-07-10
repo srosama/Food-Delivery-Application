@@ -12,6 +12,7 @@
     <!-- Link file CSS -->
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/multieForm.css' %}"/>
 </head>
 <body style="background-color: rgb(245, 246, 250);">
     <div class="contanier">
@@ -22,7 +23,7 @@
         </div>
 
 
-        <div class="box-login" style="width: 60% !important;">
+        <div class="box-login" style="width: 60% !important;     background-color: #ffffff;">
             <h1 style="font-size: 20px; position: relative; left: 90px; top: 30px; cursor: pointer;  " id="logo" ><a href="{%url 'home'%}" style="text-decoration:  none; color: black;">Food</a> <br> <span style="color: rgb(34, 50, 226);">delivery</span></h1>
             <div class="login">
                 <div class="header">
@@ -32,41 +33,120 @@
                     <p style="width: 410px; text-align: left; color: gray; opacity: 0.5;">Register to create your restaurant or personal account</p>
                 </div>
 
-                <form  action="{% url 'singup-details' %}">
-                    {% load static %}
-                    <link rel="stylesheet" type="text/css" href="{% static 'css/singup.css' %}"/>
-                    <div class="restaurant">
-                        <div class="img">
-                            <img src="{% static 'img/cart/carts-black.png'%}" alt="">
+                    <form  action="{% url 'singup-details' %}">
+                        {% load static %}
+                        <link rel="stylesheet" type="text/css" href="{% static 'css/singup.css' %}"/>
+                        <div class="restaurant">
+                            <div class="img">
+                                <img src="{% static 'img/cart/carts-black.png'%}" alt="">
+                            </div>
+                            <div class="content">
+                                <input type="radio" name="restaurant" 
+                                value="Restaurant"checked 
+                                class="radio" id="lang-1">
+                                <label class="label">Restaurant <br><span id="p-r">Manage your own Restaurant</span></label>
+                            </div>
                         </div>
-                        <div class="content">
-                            <input type="radio" name="restaurant" 
-                            value="Restaurant"checked 
-                            class="radio" id="lang-1">
-                            <label class="label">Restaurant <br><span id="p-r">Manage your own Restaurant</span></label>
+    
+                        <br>
+    
+                        <div class="restaurant">
+                            <div class="img">
+                                <img src="{% static 'img/cart/profile-black.png'%}" alt="">
+                            </div>
+                            <div class="content">
+                                <input type="radio" name="restaurant"  value="Restaurant"
+                                checked class="radio" id="lang-2">
+                                <label class="label-2">Personal <br><span id="p-r">Keep your orders on one place</span></label>
+                            </div>
                         </div>
-                    </div>
-
-                    <br>
-
-                    <div class="restaurant">
-                        <div class="img">
-                            <img src="{% static 'img/cart/profile-black.png'%}" alt="">
-                        </div>
-                        <div class="content">
-                            <input type="radio" name="restaurant"  value="Restaurant"
-                            checked class="radio" id="lang-2">
-                            <label class="label-2">Personal <br><span id="p-r">Keep your orders on one place</span></label>
-                        </div>
-                    </div>
-
-                    
-                    <button style=" border-radius: 10px; position: relative; top: 80px; width: 504px !important; ">Continue</button>
-                </form>
-
-        </div>
+    
+                        
+                        <button style=" border-radius: 10px; position: relative; top: 80px; width: 504px !important; ">Continue</button>
+                    </form>
+                
+            </div>
 
     </div>
 
+
+
+
+
+
+    <script>
+
+var form_1 = document.querySelector(".form_1");
+var form_2 = document.querySelector(".form_2");
+var form_3 = document.querySelector(".form_3");
+
+
+var form_1_btns = document.querySelector(".form_1_btns");
+var form_2_btns = document.querySelector(".form_2_btns");
+var form_3_btns = document.querySelector(".form_3_btns");
+
+
+var form_1_next_btn = document.querySelector(".form_1_btns .btn_next");
+var form_2_back_btn = document.querySelector(".form_2_btns .btn_back");
+var form_2_next_btn = document.querySelector(".form_2_btns .btn_next");
+var form_3_back_btn = document.querySelector(".form_3_btns .btn_back");
+
+var form_2_progessbar = document.querySelector(".form_2_progessbar");
+var form_3_progessbar = document.querySelector(".form_3_progessbar");
+
+var btn_done = document.querySelector(".btn_done");
+var modal_wrapper = document.querySelector(".modal_wrapper");
+var shadow = document.querySelector(".shadow");
+
+form_1_next_btn.addEventListener("click", function(){
+	form_1.style.display = "none";
+	form_2.style.display = "block";
+
+	form_1_btns.style.display = "none";
+	form_2_btns.style.display = "flex";
+
+	form_2_progessbar.classList.add("active");
+});
+
+form_2_back_btn.addEventListener("click", function(){
+	form_1.style.display = "block";
+	form_2.style.display = "none";
+
+	form_1_btns.style.display = "flex";
+	form_2_btns.style.display = "none";
+
+	form_2_progessbar.classList.remove("active");
+});
+
+form_2_next_btn.addEventListener("click", function(){
+	form_2.style.display = "none";
+	form_3.style.display = "block";
+
+	form_3_btns.style.display = "flex";
+	form_2_btns.style.display = "none";
+
+	form_3_progessbar.classList.add("active");
+});
+
+form_3_back_btn.addEventListener("click", function(){
+	form_2.style.display = "block";
+	form_3.style.display = "none";
+
+	form_3_btns.style.display = "none";
+	form_2_btns.style.display = "flex";
+
+	form_3_progessbar.classList.remove("active");
+});
+
+btn_done.addEventListener("click", function(){
+	modal_wrapper.classList.add("active");
+})
+
+shadow.addEventListener("click", function(){
+	modal_wrapper.classList.remove("active");
+})
+
+
+    </script>
 </body>
 </html>
