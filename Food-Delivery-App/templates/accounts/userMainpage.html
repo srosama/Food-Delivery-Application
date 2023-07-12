@@ -1,3 +1,138 @@
-<h1>Setting Account</h1>
+{% include "components/navbar.html" %}
+{% load static %}
 
-{{name}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/accounts/account.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/singup.css' %}"/>
+</head>
+<body style="background-color: white !important;">
+    <div class="main-container">
+        <div class="container-nav">
+            <!-- Accounts -->
+            <div class="option" data-changer=".theChanger">
+                <h3 id="headerS">Settings</h3>
+                <div class="account" style="padding: 0px;">
+                    <div class="img-account">
+                        <img src="{% static 'img/cart/os2.png'%}" alt="img for settings options">
+                    </div>
+                    <div class="content">
+                        <p class="label">Account<br><span id="p-r">Personal information</span></p>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Address -->
+            <div class="option" data-changer=".theChanger2">
+                <div class="account" style="padding: 0px;">
+                    <div class="img-account">
+                        <img src="{% static 'img/cart/loc2.png'%}" alt="img for settings options">
+                    </div>
+                    <div class="content">
+                        <p class="label">Address<br><span id="p-r">Shipping addresses</span></p>
+                    </div>
+                </div>
+            </div>
+   
+            <!-- Payment Method -->
+            <div class="option" data-changer=".theChanger3">
+                <div class="account" style="padding: 0px;">
+                    <div class="img-account">
+                        <img src="{% static 'img/cart/card2.png'%}" alt="img for settings options">
+                    </div>
+                    <div class="content">
+                        <p class="label">Payment method<br><span id="p-r">Connected credit cards</span></p>
+                    </div>
+                </div>
+            </div>
+ 
+            <!-- Security -->
+            <div class="option" data-changer=".theChanger4">
+                <div class="account" style="padding: 0px;">
+                    <div class="img-account">
+                        <img src="{% static 'img/cart/security.png'%}" alt="img for settings options">
+                    </div>
+                    <div class="content">
+                        <p class="label">Security<br><span id="p-r">Password, 2FA</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <link rel="stylesheet" href="{% static 'css/accounts/account.css'%}">
+        <div class="container" style="
+           display: flex;       
+        ">
+            <div class="theChanger" style="display: none;">
+                <!-- Header -->
+                <h3>Account</h4>
+                <div class="content-account">
+                    <h4>Personal information</h4>
+                    <div class="avatar">
+                        <p>Avatar</p>
+                        <img src="" alt="">
+                        <button>Change</button>
+                        <button>Remove</button>
+                    </div>
+                    
+                    <div class="info">
+                        <label>Full name</label>
+                        <input type="text">
+
+                        <label>Email</label>
+                        <input type="email">
+
+                        <label>Phone number</label>
+                        <input type="text">
+                    </div>
+
+                    <div class="emailNotifications">
+                        <input type="checkbox"  placeholder="New deals">
+                        <label>New deals</label>
+                        <input type="checkbox"  placeholder="New deals">
+                        <label>New restaurants</label>
+                        <input type="checkbox"  placeholder="New deals">
+                        <label>Order statuses</label>
+                        <input type="checkbox"  placeholder="New deals">
+                        <label>Password changes</label>
+                        <input type="checkbox"  placeholder="New deals">
+                        <label>Specail offers</label>
+                        <input type="checkbox"  placeholder="New deals">
+                        <label>Newsletter</label>
+                    </div>
+
+                    <div class="footer">
+                        <button>Log out</button>
+                        <button>Discard changes</button>
+                        <button>Save changes</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="theChanger2" style="display: none;">Value 1</div>
+            <div class="theChanger3" style="display: none;">Value 2</div>
+            <div class="theChanger4" style="display: none;">Value 3</div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        const options = document.querySelectorAll(".option");
+        const changers = document.querySelectorAll("[class^='theChanger']");
+
+        options.forEach((option) => {
+            option.addEventListener("click", () => {
+                const changerSelector = option.dataset.changer;
+                console.log(changerSelector)
+                changers.forEach((changer) => (changer.style.display = "none"));
+                document.querySelector(changerSelector).style.display = "block";
+            });
+        });
+    </script>
+</body>
+</html>

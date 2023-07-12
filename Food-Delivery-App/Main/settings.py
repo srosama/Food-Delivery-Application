@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     #My Apps
     'rest_framework',
     'AuthAuthorization',
-
+    'resturantsApp',
+    
     #Django Apps
     'django_countries',
     'django.contrib.admin',

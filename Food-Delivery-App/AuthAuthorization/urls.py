@@ -19,5 +19,5 @@ urlpatterns = [
     path('reset_password_complete/', PasswordResetCompleteView.as_view(), name="password_reset_complete"),
 
     #User Account Details
-    path('account/', userMainAccount, name='userMain')
+    path('account/', userMainAccount, name='userMain'),
 ]

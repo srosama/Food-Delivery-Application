@@ -1,0 +1,264 @@
+/* {% load static %} */
+
+.main-cont{
+    padding-left: 8rem;
+    padding-right: 8rem;
+}
+
+.heading-deals{
+    position: relative;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between !important;
+}
+
+
+
+#dealsBTN{
+    color: rgb(78, 96, 255);
+    background: none;
+    border: 1px solid rgb(78, 96, 255);
+    border-radius: 20px;
+    padding: 2px;
+    height: 30px;
+    font-size: 12px;
+    word-wrap: none;
+    cursor: pointer;
+    width: 110px;
+
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+#dealsBTN:hover{
+    background: rgb(78, 96, 255);
+    color: white;
+    transition: all ease 0.3s;
+}
+
+#headerP{
+    color: rgb(43, 43, 67);
+    font-size: 18px;
+}
+
+
+/* Adds Bannaer */
+.ad-1{
+    display: flex;
+    background-color: rgb(226, 227, 242);
+    border-radius: 20px;
+    width: 50%;
+    height: 210px;
+}
+
+.bannar{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.ad-2{
+    display: flex;
+    background-color: rgb(255, 243, 237);
+    border-radius: 20px;
+    width: 50%;
+    height: 210px;
+}
+
+.ad-1-text{
+    text-align: left;
+    padding-right: 140px !important;
+    white-space: nowrap;   
+}
+
+#offer{
+    color: rgb(78, 96, 255);
+    font-size: 70px; 
+    font-weight: 600;
+    position: relative;
+    bottom: 70px;
+}
+
+
+#category{
+    color: gray;
+    opacity: 0.5;
+    font-size: 12px;
+     position: relative; 
+     bottom: 120px; 
+}
+
+.fillter{
+    margin-top: 40px;
+    display: flex;
+    gap: 30px;
+}
+
+.item1-fillter{
+    background: rgb(248, 249, 255);
+    width: 15%;
+    text-align: center;
+    border-radius: 20px;
+    border: 1px solid rgba(110, 112, 120, 0.445) ;
+    color: rgb(96, 101, 129) !important;
+    padding: 15px;
+    position: relative;
+    cursor: pointer;
+
+    justify-content: center;
+}
+
+.item1-fillter-img{
+    position: relative;
+    top: 5px;
+}
+
+
+
+.resturants{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+}
+
+.card{
+    border: rgba(130, 131, 134, 0.359) 1px solid;
+    border-radius: 15px;
+    margin: 10px;
+    width: 390px !important;
+    height: 310px;
+}
+
+.img-card{
+    border-radius: 20px;
+    /* margin-bottom: 15px; */
+    border-radius: 15px 15px 0px 0px;
+    width: 100%;
+    height: 170px;
+    background-image: url('/static/img/res-banners/res.jpg'); 
+    background-size: cover ;
+    background-position: center;
+}
+
+.img-card2{
+    border-radius: 20px;
+    /* margin-bottom: 15px; */
+    border-radius: 15px 15px 0px 0px;
+    width: 100%;
+    height: 170px;
+    background-image: url('/static/img/res-banners/herfy.png'); 
+    background-size: cover ;
+    background-position: center;
+}
+
+.img-card3{
+    border-radius: 20px;
+    /* margin-bottom: 15px; */
+    border-radius: 15px 15px 0px 0px;
+    width: 100%;
+    height: 170px;
+    background-image: url('/static/img/res-banners/BaskinRobbins.png'); 
+    background-size: cover ;
+    background-position: center;
+}
+
+.img-card4{
+    border-radius: 20px;
+    /* margin-bottom: 15px; */
+    border-radius: 15px 15px 0px 0px;
+    width: 100%;
+    height: 170px;
+    background-image: url('/static/img/res-banners/starBuks.png'); 
+    background-size: cover ;
+    background-position: center;
+}
+
+
+.img-card5{
+    border-radius: 20px;
+    /* margin-bottom: 15px; */
+    border-radius: 15px 15px 0px 0px;
+    width: 100%;
+    height: 170px;
+    background-image: url('/static/img/res-banners/Subway.png'); 
+    background-size: cover ;
+    background-position: center;
+}
+
+.img-card6{
+    border-radius: 20px;
+    /* margin-bottom: 15px; */
+    border-radius: 15px 15px 0px 0px;
+    width: 100%;
+    height: 170px;
+    background-image: url('/static/img/res-banners/Little.png'); 
+    background-size: cover ;
+    background-position: center;
+}
+
+
+.content-text-cards{
+    padding-left:15px;
+    padding-right:15px;
+}
+
+.title{
+    display: flex;
+    justify-content: space-between;
+}
+
+.title > h2{
+    color: rgb(43, 43, 67);
+    font-size: 18px !important;
+}
+
+#time{
+    color: gray;
+    opacity: 0.5;
+    font-size: 12px;
+}
+
+#category-card{
+    border-radius: 30px !important;
+    width: 100px !important;
+    text-align: center;
+    background-color: rgb(237, 238, 242) !important;
+}
+
+
+
+#imgBTN{
+    position: relative;
+    top: 3px;
+}
+
+
+#res-header{
+    margin-top: 40px;
+}
+
+#h1-span{
+    font-size: 12px;
+    font-weight: 400;
+    color: gray;
+}
+
+.other{
+    position: relative;
+    bottom: 20px;
+}
+
+#loadAllRes{
+    background-color: rgb(78, 96, 255);
+    color: white;
+    border: none;
+    text-decoration: none;
+    text-align: center !important;
+    border-radius: 10px;
+    padding: 10px;
+    justify-content: center;
+    display: grid;
+    justify-content: center;
+}

@@ -55,8 +55,8 @@ from django.http import HttpResponse
 from django.contrib.auth.models import Group
 
 
-#User Account Mangment
 
+#User Account Mangment
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def userMainAccount(request):
@@ -64,9 +64,6 @@ def userMainAccount(request):
     print(user_name)
     context = {'name':user_name}
     return render(request, 'accounts/userMainpage.html',context)
-
-
-
 
 
 
@@ -97,11 +94,6 @@ class Logout(View):
         logout(request)
         messages.success(request, "You Have Been Logged Out")
         return redirect('home')
-
-
-
-
-
 #Sing up
 class RegsterionAPI(APIView):
     def get(self, req):
@@ -162,11 +154,6 @@ class BasicRegsterion(TemplateView):
        login(req, userSave)
        messages.success(req, "You have successfully created your account".title())
        return redirect('home')       
-
-
-
-
-
 #Reset password
 class PasswordContextMixin:
     extra_context = None

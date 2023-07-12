@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/base/base.css'%}">
       </head>
     <body>
         
@@ -26,12 +28,215 @@
       {% endfor %}
       {% endif %}
 
+      <div class="main-cont">
+        <div class="heading-deals">
+          <p id="headerP">Hottest deals</p>
+          <button id="dealsBTN">ALL DEALS</button>
+        </div>
         
+        <div class="bannar">
+
+        <!-- Add1 -->
+        <div class="ad-1">
+          <img src="{% static 'img/base/img.png'%}" alt="">
+          
+          <div class="ad-1-text">
+            <p style="font-size: 20px !important;  padding-top: 20px;">All desers</p>
+            <h2 id="offer">20% OFF</h2>
+            <p id="category">Deserty</p>
+          </div>
+        
+        </div>
+        
+        <!-- Add2 -->
+        <div class="ad-2">
+          <img src="{% static 'img/base/burger.png'%}" alt="">
+          <div class="ad-1-text">
+            <p style="font-size: 20px !important; padding-bottom: 10px; padding-top: 10px;">All desers</p>
+            <h2 id="offer" style="color: rgb(253, 109, 34);">20% OFF</h2>
+            <p id="category">Fooddies</p>
+          </div>
+        </div>
+
+          </div>
+
+          <div class="fillter">
+          <!-- Item1 -->
+            <div class="item1-fillter">
+              <div class="item1-fillter-img">
+                <img src="{% static 'img/icons/pizza.png'%}" width="30px" alt="">
+                <div class="item1-fillter-text">
+                  <p>Pizza</p>
+                </div>
+            </div>
+          </div>
+
+          <!-- Item2 -->
+          <div class="item1-fillter">
+            <div class="item1-fillter-img">
+              <img src="{% static 'img/icons/burger.png'%}" width="30px" alt="">
+              <div class="item1-fillter-text">
+                <p>Burger</p>
+              </div>
+          </div>
+        </div>
+
+
+        
+          <!-- Item3 -->
+          <div class="item1-fillter">
+            <div class="item1-fillter-img">
+              <img src="{% static 'img/icons/meat.png'%}" width="30px" alt="">
+              <div class="item1-fillter-text">
+                <p>BBQ</p>
+              </div>
+          </div>
+        </div>
+
+
+          <!-- Item4 -->
+          <div class="item1-fillter">
+            <div class="item1-fillter-img">
+              <img src="{% static 'img/icons/crab.png'%}" width="30px" alt="">
+              <div class="item1-fillter-text">
+                <p>Sea Food</p>
+              </div>
+          </div>
+        </div>
+
+
+          <!-- Item5 -->
+          <div class="item1-fillter">
+            <div class="item1-fillter-img">
+              <img src="{% static 'img/icons/broccoli.png'%}" width="30px" alt="">
+              <div class="item1-fillter-text">
+                <p>Vegan</p>
+              </div>
+          </div>
+        </div>
+
+
+          <!-- Item6 -->
+          <div class="item1-fillter">
+            <div class="item1-fillter-img">
+              <img src="{% static 'img/icons/desserts.png'%}" width="30px" alt="">
+              <div class="item1-fillter-text">
+                <p>Desserts</p>
+              </div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+
+    <h1 id="res-header">Resturants</h1>
+    <div class="resturants">
+        <!-- Card 1 -->
+        <div class="card">
+          <div class="img-card"> </div>
+          <div class="content-text-cards">
+            <div class="title">
+              <h2>Ninja sushi <br><span id="h1-span">The best sushi in all KSA</span></h2>
+              <i class="fa-solid fa-star" id="starRev" style="font-size:11px ; position: relative; top: 17px; color: rgb(255, 215, 0);">                 <span style="color: black; font-weight: 500;">4.5</span></i>
+            </div>
+            <div class="other">
+              <p id="time"><i><i class="fa-regular fa-clock"></i></i> 30-40 min • $32 min sum</p>
+              <button id="category-card" style="color: rgb(174, 174, 174); "><img src="{% static 'img/icons/crab.png'%}" width="16px" id="imgBTN"> Sea Food</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 2  Burger-->
+        <div class="card">
+          <div class="img-card2"> </div>
+          <div class="content-text-cards">
+            <div class="title">
+              <h2>Herfy<br><span id="h1-span">Sandwiches - Sandwiches - Arabic - Arabic</span></h2>
+              <i class="fa-solid fa-star" id="starRev" style="font-size:11px ; position: relative; top: 17px; color: rgb(255, 215, 0);">                 <span style="color: black; font-weight: 500;">4.5</span></i>
+            </div>
+            <div class="other">
+              <p id="time"><i><i class="fa-regular fa-clock"></i></i> 30-40 min • $32 min sum</p>
+              <button id="category-card" style="color: rgb(174, 174, 174); "><img src="{% static 'img/icons/pizza.png'%}" width="16px" id="imgBTN"> Pizza</button>
+              <button id="category-card" style="color: rgb(174, 174, 174); "><img src="{% static 'img/icons/burger.png'%}" width="16px" id="imgBTN"> Burger </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="card">
+          <div class="img-card3"> </div>
+          <div class="content-text-cards">
+            <div class="title">
+              <h2>Baskin Robbins<br><span id="h1-span">Desserts - Beverages</span></h2>
+              <i class="fa-solid fa-star" id="starRev" style="font-size:11px ; position: relative; top: 17px; color: rgb(255, 215, 0);">                 <span style="color: black; font-weight: 500;">4.5</span></i>
+            </div>
+            <div class="other">
+              <p id="time"><i><i class="fa-regular fa-clock"></i></i> 30-40 min • $32 min sum</p>
+              <button id="category-card" style="color: rgb(174, 174, 174); "><img src="{% static 'img/icons/desserts.png'%}" width="16px" id="imgBTN"> Desserts </button>
+            </div>
+          </div>
+        </div>
+        
+
+        <!-- Card 4 -->
+        <div class="card">
+          <div class="img-card4"> </div>
+          <div class="content-text-cards">
+            <div class="title">
+              <h2>Starbucks®<br><span id="h1-span">Roastery - Coffee - Beverages - Breakfast </span></h2>
+              <i class="fa-solid fa-star" id="starRev" style="font-size:11px ; position: relative; top: 17px; color: rgb(255, 215, 0);">                 <span style="color: black; font-weight: 500;">4.5</span></i>
+            </div>
+            <div class="other">
+              <p id="time"><i><i class="fa-regular fa-clock"></i></i> 30-40 min • $32 min sum</p>
+              <button id="category-card" style="color: rgb(174, 174, 174); "><img src="{% static 'img/icons/desserts.png'%}" width="16px" id="imgBTN"> Desserts </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 5 -->
+        <div class="card">
+          <div class="img-card5"> </div>
+          <div class="content-text-cards">
+            <div class="title">
+              <h2>Subway<br><span id="h1-span">Sandwiches - Healthy Food - Fast Food</span></h2>
+              <i class="fa-solid fa-star" id="starRev" style="font-size:11px ; position: relative; top: 17px; color: rgb(255, 215, 0);">                 <span style="color: black; font-weight: 500;">4.5</span></i>
+            </div>
+            <div class="other">
+              <p id="time"><i><i class="fa-regular fa-clock"></i></i> 30-40 min • $32 min sum</p>
+              <button id="category-card" style="color: rgb(174, 174, 174); "><img src="{% static 'img/icons/crab.png'%}" width="16px" id="imgBTN"> Sea Food</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 6 -->
+        <div class="card">
+          <div class="img-card6"> </div>
+          <div class="content-text-cards">
+            <div class="title">
+              <h2>Little Caesar's pizza<br><span id="h1-span">Fast Food - Pizza - Italian</span></h2>
+              <i class="fa-solid fa-star" id="starRev" style="font-size:11px ; position: relative; top: 17px; color: rgb(255, 215, 0);">                 <span style="color: black; font-weight: 500;">4.5</span></i>
+            </div>
+            <div class="other">
+              <p id="time"><i><i class="fa-regular fa-clock"></i></i> 30-40 min • $32 min sum</p>
+              <button id="category-card" style="color: rgb(174, 174, 174); "><img src="{% static 'img/icons/crab.png'%}" width="16px" id="imgBTN"> Sea Food</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <a href="{% url 'resturantslist' %}"  id="loadAllRes">View All Restaurants</a>
+        
+
+      <footer>
+        <div class="footer">
+          <h1 style="text-align: center; padding: 10px;">Footer</h1>
+        </div>
+      </footer>
         {% endblock content %}
 
 
-        <footer>
-        </footer>
-        
 </body>
 </html>

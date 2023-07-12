@@ -19,7 +19,7 @@
 <body>
     <nav>
         <div class="container">
-            <h1 class="logo">Food <br><span>Deleviry</span></h1>
+            <h1 class="logo"><a href="{% url 'home' %}" style="color: black; text-decoration: none;">Food <br><span style="color: rgb(78, 96, 255);">Deleviry</span></a></h1>
             <div class="search-bar">
                 <input type="search" name="search" placeholder="Search">
                 <i class="fa-solid fa-magnifying-glass"id="s-icon"></i>
@@ -27,7 +27,7 @@
 
             <div class="button">
                 {% if user.is_authenticated%}
-                    <p><a href="#"></a>Restaurants</p>
+                    <p><a href="{% url 'resturantslist' %}">Restaurants</a></p>
                     <p><a href="#"></a>Deals</p>
                     <p><a href="#"></a>My Orders</p>
                     <button class="btn"><a href=""> <i class="fa-solid fa-bag-shopping" style="width: 20px; color: rgb(78, 96, 255) !important; font-size: 19px !important; position: relative; top: 4px;"></i></a></button>
@@ -35,12 +35,12 @@
                     <button class="btn"><a href=""> <i class="fa-regular fa-user" style="width: 20px; color: rgb(78, 96, 255) !important; font-size: 19px !important; position: relative; top: 4px;"></i></a></button>
                     <div class="dropdown-content">
                           <a href="#">{{user.email}}</a>
-                          <a href="#">Manage Account</a>
+                          <a href="{% url 'userMain' %}">Manage Account</a>
                           <a href="{%url 'logout'%}" style="color: rgb(255, 92, 96);">Log out</a>
                         </div>
                       </div> 
                 {% else %}
-                <p><a href="#"></a>Restaurants</p>
+                <p><a href="{% url 'resturantslist' %}">Restaurants</a></p>
                 <p><a href="#"></a>Deals</p>
                 <p><a href="{%url 'login'%}">Login</a></p>
                 <button class="btn"><a href="{%url 'singup'%}">Create Account</a></button>

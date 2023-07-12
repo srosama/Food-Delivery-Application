@@ -1,0 +1,51 @@
+.main-container{
+    padding-top: 40px;
+    width: 90%;
+    display: flex;
+    margin: 0 auto;
+}
+
+.container{
+    display: flex;
+    padding: 50px;
+
+}
+
+#headerS{
+    padding-bottom: 30px;
+
+}
+.option{
+    padding: 8px;
+}
+
+.account{
+    border: 2px rgb(118, 118, 118) solid;
+    border-radius: 15px;
+    /* width: 350px; */
+    display: flex;
+    padding: 0px;
+}
+
+
+.img-account{
+    padding: 10px;    
+}
+
+.img-account > img{
+    padding: 5px 12px 5px 12px;
+    
+    object-fit: contain;  
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    color: white;
+    /* background-color:rgb(78, 96, 255) ; */
+   /* background-color: rgb(239, 240, 243); */
+
+}
+
+
+.content-account{
+    padding: 90px;
+}
