@@ -1,4 +1,22 @@
 {% include "components/navbar.html" %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/base/base.css'%}">
 
-
-<h1>All resturants</h1>
+<h1 id="res-header">All Resturants</h1>
+<div class="resturants">
+{% for i in resturants%}
+    <!-- Card 1 -->
+    <div class="card">
+      <div class="img-card"> </div>
+      <div class="content-text-cards">
+<div class="title">
+          <h2>{{i.name | title}} <br><span id="h1-span">{{i.description}}</span></h2>
+          <i class="fa-solid fa-star" id="starRev" style="font-size:11px ; position: relative; top: 17px; color: rgb(255, 215, 0);">                 <span style="color: black; font-weight: 500;">4.5</span></i>
+        </div>
+        <div class="other">
+          <p id="time"><i><i class="fa-regular fa-clock"></i></i> {{i.time_for_delivery}}min • ${{i.price_Max | floatformat}}MAX min sum</p>
+          <button id="category-card" style="color: rgb(174, 174, 174); "><img src="{% static 'img/icons/burger.png'%}" width="16px" id="imgBTN"> {{i.category}}</button>
+        </div>
+      </div>
+    </div>
+{% endfor %}

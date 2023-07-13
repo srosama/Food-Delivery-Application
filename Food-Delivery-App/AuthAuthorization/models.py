@@ -60,6 +60,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
 
+#Account
 class customerAccountDetails(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     phone_number = models.CharField(max_length=20, null=True)
@@ -81,3 +82,22 @@ class customerAccountDetails(models.Model):
 #     expiration_date = models.DateField()
 #     cvc = models.CharField(max_length=4)
 #     cardholder = models.CharField(max_length=40)
+
+
+
+#Restaurants Owners
+class AddRestaurant(models.Model):
+    name = models.CharField(max_length=100)
+    logo = models.ImageField(upload_to='logos/', blank=True, null=True)
+    bannar_img = models.ImageField(upload_to='banners/')
+    description = models.TextField()
+    time_for_delivery = models.PositiveIntegerField()
+    price_Max = models.DecimalField(max_digits=8, decimal_places=2)
+    price_Min = models.DecimalField(max_digits=8, decimal_places=2)
+    category = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+    opening_time = models.TimeField()
+    closing_time = models.TimeField()
+
+    def __str__(self):
+        return self.name

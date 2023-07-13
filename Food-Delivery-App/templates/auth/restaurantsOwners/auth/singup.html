@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Restaurant Information Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+      color: #333333;
+    }
+    
+    form {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #333333;
+    }
+    
+    input[type="text"],
+    input[type="time"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cccccc;
+      border-radius: 3px;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    
+    select {
+      height: 34px;
+    }
+    
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Restaurant Information Form</h1>
+  <form action="submit_form.php" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="logo">Logo:</label>
+    <input type="file" id="logo" name="logo">
+    
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required></textarea>
+    
+    <label for="time_for_delivery">Time for Delivery:</label>
+    <input type="text" id="time_for_delivery" name="time_for_delivery" required>
+    
+    <label for="category">Category:</label>
+    <select id="category" name="category" required>
+      <option value="">Select a category</option>
+      <option value="Burger">Burger</option>
+      <option value="Sushi">Sushi</option>
+      <option value="Pizza">Pizza</option>
+      <option value="Dessert">Dessert</option>
+      <option value="BBQ">BBQ</option>
+      <option value="Seafood">Seafood</option>
+      <option value="Vegan">Vegan</option>
+    </select>
+    
+    <label for="price_range">Price Range:</label>
+    <select id="price_range" name="price_range" required>
+      <option value="">Select a range</option>
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+    </select>
+    
+    <label for="opening_time">Opening Time:</label>
+    <input type="time" id="opening_time" name="opening_time" required>
+    
+    <label for="closing_time">Closing Time:</label>
+    <input type="time" id="closing_time" name="closing_time" required>
+    
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

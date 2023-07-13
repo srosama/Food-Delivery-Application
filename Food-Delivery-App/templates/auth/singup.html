@@ -13,6 +13,7 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/multieForm.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/singup.css' %}"/>
 </head>
 <body style="background-color: rgb(245, 246, 250);">
     <div class="contanier">
@@ -33,9 +34,8 @@
                     <p style="width: 410px; text-align: left; color: gray; opacity: 0.5;">Register to create your restaurant or personal account</p>
                 </div>
 
-                    <form  action="{% url 'singup-details' %}">
+                    <form method="post"> {% csrf_token %}
                         {% load static %}
-                        <link rel="stylesheet" type="text/css" href="{% static 'css/singup.css' %}"/>
                         <div class="restaurant">
                             <div class="img">
                                 <img src="{% static 'img/cart/carts-black.png'%}" alt="">
@@ -55,7 +55,7 @@
                                 <img src="{% static 'img/cart/profile-black.png'%}" alt="">
                             </div>
                             <div class="content">
-                                <input type="radio" name="restaurant"  value="Restaurant"
+                                <input type="radio" name="restaurant"  value="personal"
                                 checked class="radio" id="lang-2">
                                 <label class="label-2">Personal <br><span id="p-r">Keep your orders on one place</span></label>
                             </div>

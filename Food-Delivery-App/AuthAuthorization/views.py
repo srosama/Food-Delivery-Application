@@ -69,6 +69,7 @@ def userMainAccount(request):
 
 
 
+
 # Login
 class Login(View):
     def get(self, req):
@@ -94,11 +95,16 @@ class Logout(View):
         logout(request)
         messages.success(request, "You Have Been Logged Out")
         return redirect('home')
-#Sing up
+
 class RegsterionAPI(APIView):
+
     def get(self, req):
         return render(req, 'auth/singup.html')
     def post(self, req):
+        where = req.POST['restaurant']
+        if where == 'Restaurant':
+            return redirect('addnewrstaurant')
+
         return redirect('singup-details')
 class RegsterionDetailsAPI(APIView):
     def get(self, req):
@@ -154,6 +160,13 @@ class BasicRegsterion(TemplateView):
        login(req, userSave)
        messages.success(req, "You have successfully created your account".title())
        return redirect('home')       
+
+class addNewRestaurant(View):
+    def get(self, request):
+        return render(request, 'auth/restaurantsOwners/auth/singup.html')
+
+
+
 #Reset password
 class PasswordContextMixin:
     extra_context = None
@@ -292,3 +305,5 @@ class PasswordResetCompleteView(PasswordContextMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         context["login_url"] = resolve_url(settings.LOGIN_URL)
         return context
+
+

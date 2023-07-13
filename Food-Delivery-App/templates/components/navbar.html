@@ -30,14 +30,16 @@
                     <p><a href="{% url 'resturantslist' %}">Restaurants</a></p>
                     <p><a href="#"></a>Deals</p>
                     <p><a href="#"></a>My Orders</p>
-                    <button class="btn"><a href=""> <i class="fa-solid fa-bag-shopping" style="width: 20px; color: rgb(78, 96, 255) !important; font-size: 19px !important; position: relative; top: 4px;"></i></a></button>
-                    <div class="dropdown">
-                    <button class="btn"><a href=""> <i class="fa-regular fa-user" style="width: 20px; color: rgb(78, 96, 255) !important; font-size: 19px !important; position: relative; top: 4px;"></i></a></button>
-                    <div class="dropdown-content">
-                          <a href="#">{{user.email}}</a>
-                          <a href="{% url 'userMain' %}">Manage Account</a>
-                          <a href="{%url 'logout'%}" style="color: rgb(255, 92, 96);">Log out</a>
-                        </div>
+                    <div class="buton">
+                        <button class="btn"><a href=""> <i class="fa-solid fa-bag-shopping" style="width: 20px; color: rgb(78, 96, 255) !important; font-size: 19px !important; position: relative; top: 4px;"></i></a></button>
+                        <div class="dropdown">
+                        <button class="btn"><a href=""> <i class="fa-regular fa-user" style="width: 20px; color: rgb(78, 96, 255) !important; font-size: 19px !important; position: relative; top: 4px;"></i></a></button>
+                        <div class="dropdown-content">
+                              <a href="#">{{user.email}}</a>
+                              <a href="{% url 'userMain' %}">Manage Account</a>
+                              <a href="{%url 'logout'%}" style="color: rgb(255, 92, 96);">Log out</a>
+                            </div>
+                    </div>
                       </div> 
                 {% else %}
                 <p><a href="{% url 'resturantslist' %}">Restaurants</a></p>
