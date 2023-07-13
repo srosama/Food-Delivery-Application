@@ -23,6 +23,7 @@ urlpatterns = [
     path('account/', userMainAccount, name='userMain'),
 
     #Add New Authrazed Restaurant Owners
+    path('restaurant/regsterion/', view=BasicRestaurantRegsterion.as_view(), name='basic-restaurant-regsterion'),
     path('add_restaurant/', addNewRestaurant.as_view(), name='addnewrstaurant'),
 ]
 

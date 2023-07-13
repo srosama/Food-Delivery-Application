@@ -262,3 +262,8 @@
     display: grid;
     justify-content: center;
 }
+
+.main-cards{
+    padding-left: 90px;
+    padding-right: 90px;
+}

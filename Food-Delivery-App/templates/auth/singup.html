@@ -1,5 +1,10 @@
+<!-- hERE THE USER aUTH AND CREATE aCCOUNT aAND aDD to Resturna Owners Group -->    
+
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,13 +16,14 @@
 
     <!-- Link file CSS -->
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/multieForm.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/singup.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/multieForm.css' %}" />
 </head>
+
 <body style="background-color: rgb(245, 246, 250);">
     <div class="contanier">
-        <div class="text" style="background: linear-gradient(rgb(105, 123, 255), rgb(3, 22, 165));  width: 40% !important;">
+        <div class="text"
+            style="background: linear-gradient(rgb(105, 123, 255), rgb(3, 22, 165));  width: 40% !important;">
             <img src="{% static 'img/login.png'%} " style="width: 600px !important;" alt="">
             <h1 style="font-size: 30px !important;">Leave reviews for all measl</h1>
             <p>Let the Best of International Business News come to you.</p>
@@ -25,128 +31,84 @@
 
 
         <div class="box-login" style="width: 60% !important;     background-color: #ffffff;">
-            <h1 style="font-size: 20px; position: relative; left: 90px; top: 30px; cursor: pointer;  " id="logo" ><a href="{%url 'home'%}" style="text-decoration:  none; color: black;">Food</a> <br> <span style="color: rgb(34, 50, 226);">delivery</span></h1>
+            <h1 style="font-size: 20px; position: relative; left: 90px; top: 30px; cursor: pointer;  " id="logo"><a
+                    href="{%url 'home'%}" style="text-decoration:  none; color: black;">Food</a> <br> <span
+                    style="color: rgb(34, 50, 226);">delivery</span></h1>
             <div class="login">
                 <div class="header">
                     <img src="image/logo.png" alt="" class="logo">
                     {% include "components/messages.html" %}
                     <h2 style="text-align: left !important; font-size: 50px;">Sign up</h2>
-                    <p style="width: 410px; text-align: left; color: gray; opacity: 0.5;">Register to create your restaurant or personal account</p>
+                    <p style="width: 410px; text-align: left; color: gray; opacity: 0.5;">Register to create your
+                        ` or personal account</p>
                 </div>
 
-                    <form method="post"> {% csrf_token %}
-                        {% load static %}
-                        <div class="restaurant">
-                            <div class="img">
-                                <img src="{% static 'img/cart/carts-black.png'%}" alt="">
-                            </div>
-                            <div class="content">
-                                <input type="radio" name="restaurant" 
-                                value="Restaurant"checked 
-                                class="radio" id="lang-1">
-                                <label class="label">Restaurant <br><span id="p-r">Manage your own Restaurant</span></label>
-                            </div>
+                <form>
+                    {% load static %}
+                    <div class="restaurant" id="option1" data-changer="rest">
+                        <div class="img">
+                            <img src="{% static 'img/cart/carts.png'%}" alt="img for demonstrating" id="img1">
                         </div>
-    
-                        <br>
-    
-                        <div class="restaurant">
-                            <div class="img">
-                                <img src="{% static 'img/cart/profile-black.png'%}" alt="">
-                            </div>
-                            <div class="content">
-                                <input type="radio" name="restaurant"  value="personal"
-                                checked class="radio" id="lang-2">
-                                <label class="label-2">Personal <br><span id="p-r">Keep your orders on one place</span></label>
-                            </div>
+                        <div class="content">
+                            <label for="lang-1">Restaurant <br><span id="p-r">Manage your own Restaurant</span></label>
                         </div>
-    
-                        
-                        <button style=" border-radius: 10px; position: relative; top: 80px; width: 504px !important; ">Continue</button>
-                    </form>
-                
+                    </div>
+
+                    <br>
+
+                    <div class="restaurant" id="option2" data-changer="rest2">
+                        <div class="img">
+                            <img src="{% static 'img/cart/profile.png'%}" alt="img for demostratin" id="img2">
+                        </div>
+                        <div class="content">
+                            <label for="lang-2">Personal <br><span id="p-r">Keep your orders on one
+                                    place</span></label>
+                        </div>
+                    </div>
+
+
+                    <button type="submit" class="theButton"
+                        style=" border-radius: 10px; position: relative; top: 80px; width: 504px !important; ">Continue</button>
+                </form>
+
             </div>
 
-    </div>
+        </div>
 
+        <script>
+            const radios = document.querySelectorAll(".restaurant")
+            const op1 = document.querySelector("#option1")
+            const op2 = document.querySelector("#option2")
+            const img1 = document.querySelector("#img1")
+            const img2 = document.querySelector("#img2")
+            const button = document.querySelector(".theButton")
+            button.disabled = true
+            button.style.backgroundColor = "#eff0f3"
+            button.style.boxShadow = 'none'
 
-
-
-
-
-    <script>
-
-var form_1 = document.querySelector(".form_1");
-var form_2 = document.querySelector(".form_2");
-var form_3 = document.querySelector(".form_3");
-
-
-var form_1_btns = document.querySelector(".form_1_btns");
-var form_2_btns = document.querySelector(".form_2_btns");
-var form_3_btns = document.querySelector(".form_3_btns");
-
-
-var form_1_next_btn = document.querySelector(".form_1_btns .btn_next");
-var form_2_back_btn = document.querySelector(".form_2_btns .btn_back");
-var form_2_next_btn = document.querySelector(".form_2_btns .btn_next");
-var form_3_back_btn = document.querySelector(".form_3_btns .btn_back");
-
-var form_2_progessbar = document.querySelector(".form_2_progessbar");
-var form_3_progessbar = document.querySelector(".form_3_progessbar");
-
-var btn_done = document.querySelector(".btn_done");
-var modal_wrapper = document.querySelector(".modal_wrapper");
-var shadow = document.querySelector(".shadow");
-
-form_1_next_btn.addEventListener("click", function(){
-	form_1.style.display = "none";
-	form_2.style.display = "block";
-
-	form_1_btns.style.display = "none";
-	form_2_btns.style.display = "flex";
-
-	form_2_progessbar.classList.add("active");
-});
-
-form_2_back_btn.addEventListener("click", function(){
-	form_1.style.display = "block";
-	form_2.style.display = "none";
-
-	form_1_btns.style.display = "flex";
-	form_2_btns.style.display = "none";
-
-	form_2_progessbar.classList.remove("active");
-});
-
-form_2_next_btn.addEventListener("click", function(){
-	form_2.style.display = "none";
-	form_3.style.display = "block";
-
-	form_3_btns.style.display = "flex";
-	form_2_btns.style.display = "none";
-
-	form_3_progessbar.classList.add("active");
-});
-
-form_3_back_btn.addEventListener("click", function(){
-	form_2.style.display = "block";
-	form_3.style.display = "none";
-
-	form_3_btns.style.display = "none";
-	form_2_btns.style.display = "flex";
-
-	form_3_progessbar.classList.remove("active");
-});
-
-btn_done.addEventListener("click", function(){
-	modal_wrapper.classList.add("active");
-})
-
-shadow.addEventListener("click", function(){
-	modal_wrapper.classList.remove("active");
-})
-
-
-    </script>
+            radios.forEach((rad) => {
+                rad.addEventListener("click", (event) => {
+                    const val = rad.dataset.changer
+                    if (val === "rest") {
+                        op1.style.borderColor = "#4F60FF"
+                        op2.style.borderColor = "#eff0f3"
+                        img1.style.backgroundColor = "#4E60FF"
+                        img2.style.backgroundColor = "#eff0f3"
+                        button.style.backgroundColor = "#4E60FF"
+                        button.disabled = false
+                        button.style.boxShadow = '1px 1px 10px rgb(78, 96, 255)'
+                    } else if (val === "rest2") {
+                        op2.style.borderColor = "#4F60FF"
+                        op1.style.borderColor = "#eff0f3"
+                        img2.style.backgroundColor = "#4E60FF"
+                        img1.style.backgroundColor = "#eff0f3"
+                        button.disabled = false
+                        button.style.backgroundColor = "#4E60FF"
+                        button.style.boxShadow = '1px 1px 10px rgb(78, 96, 255)'
+                    }
+                })
+            })
+        </script>
 </body>
+
 </html>

@@ -1,108 +1,114 @@
+<!-- hERE THE USER aUTH AND CREATE aCCOUNT aAND aDD to Resturna Owners Group -->    
+
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Restaurant Information Form</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      margin: 0;
-      padding: 20px;
-    }
-    
-    h1 {
-      text-align: center;
-      color: #333333;
-    }
-    
-    form {
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
-      max-width: 500px;
-      margin: 0 auto;
-    }
-    
-    label {
-      display: block;
-      margin-bottom: 10px;
-      color: #333333;
-    }
-    
-    input[type="text"],
-    input[type="time"],
-    textarea,
-    select {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #cccccc;
-      border-radius: 3px;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-    
-    select {
-      height: 34px;
-    }
-    
-    input[type="submit"] {
-      background-color: #4caf50;
-      color: #ffffff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    
-    input[type="submit"]:hover {
-      background-color: #45a049;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singup</title>
+
+    <!-- link awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+    <!-- Link file CSS -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/multieForm.css' %}" />
 </head>
-<body>
-  <h1>Restaurant Information Form</h1>
-  <form action="submit_form.php" method="POST">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-    
-    <label for="logo">Logo:</label>
-    <input type="file" id="logo" name="logo">
-    
-    <label for="description">Description:</label>
-    <textarea id="description" name="description" required></textarea>
-    
-    <label for="time_for_delivery">Time for Delivery:</label>
-    <input type="text" id="time_for_delivery" name="time_for_delivery" required>
-    
-    <label for="category">Category:</label>
-    <select id="category" name="category" required>
-      <option value="">Select a category</option>
-      <option value="Burger">Burger</option>
-      <option value="Sushi">Sushi</option>
-      <option value="Pizza">Pizza</option>
-      <option value="Dessert">Dessert</option>
-      <option value="BBQ">BBQ</option>
-      <option value="Seafood">Seafood</option>
-      <option value="Vegan">Vegan</option>
-    </select>
-    
-    <label for="price_range">Price Range:</label>
-    <select id="price_range" name="price_range" required>
-      <option value="">Select a range</option>
-      <option value="Low">Low</option>
-      <option value="Medium">Medium</option>
-      <option value="High">High</option>
-    </select>
-    
-    <label for="opening_time">Opening Time:</label>
-    <input type="time" id="opening_time" name="opening_time" required>
-    
-    <label for="closing_time">Closing Time:</label>
-    <input type="time" id="closing_time" name="closing_time" required>
-    
-    <input type="submit" value="Submit">
-  </form>
+
+<body style="background-color: rgb(245, 246, 250);">
+    <div class="contanier">
+        <div class="text"
+            style="background: linear-gradient(rgb(105, 123, 255), rgb(3, 22, 165));  width: 40% !important;">
+            <img src="{% static 'img/login.png'%} " style="width: 600px !important;" alt="">
+            <h1 style="font-size: 30px !important;">Leave reviews for all measl</h1>
+            <p>Let the Best of International Business News come to you.</p>
+        </div>
+
+
+        <div class="box-login" style="width: 60% !important;     background-color: #ffffff;">
+            <h1 style="font-size: 20px; position: relative; left: 90px; top: 30px; cursor: pointer;  " id="logo"><a
+                    href="{%url 'home'%}" style="text-decoration:  none; color: black;">Food</a> <br> <span
+                    style="color: rgb(34, 50, 226);">delivery</span></h1>
+            <div class="login">
+                <div class="header">
+                    <img src="image/logo.png" alt="" class="logo">
+                    {% include "components/messages.html" %}
+                    <h2 style="text-align: left !important; font-size: 50px;">Sign up</h2>
+                    <p style="width: 410px; text-align: left; color: gray; opacity: 0.5;">Register to create your
+                        ` or personal account</p>
+                </div>
+
+                <form>
+                    {% load static %}
+                    <div class="restaurant" id="option1" data-changer="rest">
+                        <div class="img">
+                            <img src="{% static 'img/cart/carts.png'%}" alt="img for demonstrating" id="img1">
+                        </div>
+                        <div class="content">
+                            <label for="lang-1">Restaurant <br><span id="p-r">Manage your own Restaurant</span></label>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="restaurant" id="option2" data-changer="rest2">
+                        <div class="img">
+                            <img src="{% static 'img/cart/profile.png'%}" alt="img for demostratin" id="img2">
+                        </div>
+                        <div class="content">
+                            <label for="lang-2">Personal <br><span id="p-r">Keep your orders on one
+                                    place</span></label>
+                        </div>
+                    </div>
+
+
+                    <button type="submit" class="theButton"
+                        style=" border-radius: 10px; position: relative; top: 80px; width: 504px !important; ">Continue</button>
+                </form>
+
+            </div>
+
+        </div>
+
+        <script>
+            const radios = document.querySelectorAll(".restaurant")
+            const op1 = document.querySelector("#option1")
+            const op2 = document.querySelector("#option2")
+            const img1 = document.querySelector("#img1")
+            const img2 = document.querySelector("#img2")
+            const button = document.querySelector(".theButton")
+            button.disabled = true
+            button.style.backgroundColor = "#eff0f3"
+            button.style.boxShadow = 'none'
+
+            radios.forEach((rad) => {
+                rad.addEventListener("click", (event) => {
+                    const val = rad.dataset.changer
+                    if (val === "rest") {
+                        op1.style.borderColor = "#4F60FF"
+                        op2.style.borderColor = "#eff0f3"
+                        img1.style.backgroundColor = "#4E60FF"
+                        img2.style.backgroundColor = "#eff0f3"
+                        button.style.backgroundColor = "#4E60FF"
+                        button.disabled = false
+                        button.style.boxShadow = '1px 1px 10px rgb(78, 96, 255)'
+                    } else if (val === "rest2") {
+                        op2.style.borderColor = "#4F60FF"
+                        op1.style.borderColor = "#eff0f3"
+                        img2.style.backgroundColor = "#4E60FF"
+                        img1.style.backgroundColor = "#eff0f3"
+                        button.disabled = false
+                        button.style.backgroundColor = "#4E60FF"
+                        button.style.boxShadow = '1px 1px 10px rgb(78, 96, 255)'
+                    }
+                })
+            })
+        </script>
 </body>
+
 </html>

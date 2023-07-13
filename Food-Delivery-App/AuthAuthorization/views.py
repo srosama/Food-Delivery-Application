@@ -65,12 +65,14 @@ def userMainAccount(request):
     context = {'name':user_name}
     return render(request, 'accounts/userMainpage.html',context)
 
+class addNewRestaurant(View):
+    def get(self, request):
+        return render(request, 'auth/restaurantsOwners/auth/singup.html')
 
 
 
 
 
-# Login
 class Login(View):
     def get(self, req):
         return render(req, 'auth/login.html')
@@ -161,10 +163,9 @@ class BasicRegsterion(TemplateView):
        messages.success(req, "You have successfully created your account".title())
        return redirect('home')       
 
-class addNewRestaurant(View):
+class BasicRestaurantRegsterion(APIView):
     def get(self, request):
         return render(request, 'auth/restaurantsOwners/auth/singup.html')
-
 
 
 #Reset password
