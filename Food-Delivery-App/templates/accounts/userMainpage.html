@@ -128,7 +128,6 @@
         options.forEach((option) => {
             option.addEventListener("click", () => {
                 const changerSelector = option.dataset.changer;
-                console.log(changerSelector)
                 changers.forEach((changer) => (changer.style.display = "none"));
                 document.querySelector(changerSelector).style.display = "block";
             });
