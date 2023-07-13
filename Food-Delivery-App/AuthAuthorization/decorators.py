@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect
-
+from .models import User
 
 def unauthenticated_user(func):
     def wrapper_func(request, *args, **kwargs):
@@ -40,3 +40,9 @@ def admin_only(func):
             return HttpResponse("You are not authorized")
     return wrapper_func           
 
+
+#Check the UserResturneats from database and check
+# def check_user_resturneats(func):
+#     def wrapper_func(request, *args, **kwargs):
+
+#     return wrapper_func

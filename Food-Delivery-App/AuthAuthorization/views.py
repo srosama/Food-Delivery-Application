@@ -16,7 +16,7 @@ from rest_framework.authtoken.models import Token
 from django.contrib.auth.tokens import default_token_generator
 
 #Databases
-from .models import User
+from .models import User, AddNewRestaurant
 from .models import User, customerAccountDetails
 
 #Decoretors
@@ -33,7 +33,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.views.generic.base import TemplateView
 
 #Froms
-from .forms import PasswordResetForm, SetPasswordForm
+from .forms import PasswordResetForm, SetPasswordForm, addFormT
 from urllib.parse import urlparse, urlunparse
 from django.conf import settings
 
@@ -56,6 +56,18 @@ from django.contrib.auth.models import Group
 
 
 
+
+class test(TemplateView):
+    def get(self, request):
+        addRest= AddNewRestaurant
+
+        user = User.objects.filter(email=request.user.email)
+        print(user)
+        form = addFormT
+        context = {'form':form, 'email':user}
+
+        return render(request, 'test.html', context=context)
+
 #User Account Mangment
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
@@ -65,9 +77,13 @@ def userMainAccount(request):
     context = {'name':user_name}
     return render(request, 'accounts/userMainpage.html',context)
 
-class addNewRestaurant(View):
-    def get(self, request):
-        return render(request, 'auth/restaurantsOwners/auth/singup.html')
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['restaurantsOwners'])
+def addNewRestaurant(request):
+    # form = addFormT()
+    # context = {'form':form}
+    return render(request, 'auth/restaurantsOwners/auth/restaurant-details.html', context=context)
 
 
 
@@ -103,11 +119,16 @@ class RegsterionAPI(APIView):
     def get(self, req):
         return render(req, 'auth/singup.html')
     def post(self, req):
-        where = req.POST['restaurant']
-        if where == 'Restaurant':
-            return redirect('addnewrstaurant')
-
-        return redirect('singup-details')
+        whereR = req.POST
+        print(whereR)
+        # whereP = req.POST['personal']
+        # print(req.POST)
+        # if whereR == 'restaurant':
+        #     return redirect('basic-restaurant-regsterion')
+        # if whereP == 'personal':
+        #     return redirect('singup-details')
+    
+        return HttpResponse(req.POST)
 class RegsterionDetailsAPI(APIView):
     def get(self, req):
         return render(req, 'auth/user-details.html')
@@ -163,9 +184,39 @@ class BasicRegsterion(TemplateView):
        messages.success(req, "You have successfully created your account".title())
        return redirect('home')       
 
-class BasicRestaurantRegsterion(APIView):
+class BasicRestaurantRegsterion(View):
     def get(self, request):
         return render(request, 'auth/restaurantsOwners/auth/singup.html')
+    def post(self, req):
+       fullName = req.POST['name']       
+       email = req.POST['email']       
+       password = req.POST['password']       
+       password2 = req.POST['password2']    
+
+       #Password Simple Vaildtion => Add Regix !important 
+       if password != password2:
+           messages.error(req, "Password Not Mattches plz check it again ".title(), extra_tags='danger')
+           return redirect('singup-details')
+       if len(password) < 8:
+           messages.error(req, "Password Should be above 8".title(), extra_tags='danger')
+           return redirect('singup-details')
+       
+       if User.objects.filter(email=email):
+           messages.error(req, "email already in use, if this is you plz login".title(), extra_tags='danger')
+           return redirect('singup-details')
+       
+       userSave = User.objects._create_user(email=email,password=password,fullName=fullName)
+
+       #Add the user to the customer group
+       user = User.objects.get(email=email)
+       group = Group.objects.get(name="restaurantsOwners")
+       user.groups.add(group)
+       userSave.save()
+       
+       #After singup the user
+       login(req, userSave)
+       messages.success(req, "You have successfully created your account".title())
+       return redirect('addnewrstaurant')    
 
 
 #Reset password

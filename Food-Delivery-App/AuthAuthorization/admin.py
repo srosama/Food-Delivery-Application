@@ -3,4 +3,4 @@ from .models import *
 #Add Model 
 admin.site.register(User)
 admin.site.register(customerAccountDetails)
-admin.site.register(AddRestaurant)
+admin.site.register(AddNewRestaurant)

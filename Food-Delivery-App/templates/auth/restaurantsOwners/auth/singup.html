@@ -35,42 +35,45 @@
                     href="{%url 'home'%}" style="text-decoration:  none; color: black;">Food</a> <br> <span
                     style="color: rgb(34, 50, 226);">delivery</span></h1>
             <div class="login">
-                <div class="header">
+                <div class="header" style="position: relative; top: 30px;">
                     <img src="image/logo.png" alt="" class="logo">
                     {% include "components/messages.html" %}
-                    <h2 style="text-align: left !important; font-size: 50px;">Sign up</h2>
-                    <p style="width: 410px; text-align: left; color: gray; opacity: 0.5;">Register to create your
-                        ` or personal account</p>
+                    <h2 style="text-align: left !important; font-size: 40px;">Register Your <br>Restaurant 🍣</h2>
+                    <p style="width: 410px; text-align: left; color: gray; opacity: 0.5;">Register to create and setup your restaurant and view it to 1-million user</p>
                 </div>
 
-                <form>
-                    {% load static %}
-                    <div class="restaurant" id="option1" data-changer="rest">
-                        <div class="img">
-                            <img src="{% static 'img/cart/carts.png'%}" alt="img for demonstrating" id="img1">
-                        </div>
-                        <div class="content">
-                            <label for="lang-1">Restaurant <br><span id="p-r">Manage your own Restaurant</span></label>
-                        </div>
-                    </div>
-
-                    <br>
-
-                    <div class="restaurant" id="option2" data-changer="rest2">
-                        <div class="img">
-                            <img src="{% static 'img/cart/profile.png'%}" alt="img for demostratin" id="img2">
-                        </div>
-                        <div class="content">
-                            <label for="lang-2">Personal <br><span id="p-r">Keep your orders on one
-                                    place</span></label>
-                        </div>
-                    </div>
-
-
-                    <button type="submit" class="theButton"
-                        style=" border-radius: 10px; position: relative; top: 80px; width: 504px !important; ">Continue</button>
+                <form method="post" style="position: relative; top: 20px;"> 
+                    <!-- Django-Form -->
+                    {% csrf_token %}
+                            <!-- Full Name -->
+                            <label for="text">Full Name</label>
+                            <div class="inp">
+                                <input type="text" name="name" placeholder="Ahmed Mouse" style="border-radius: 10px;">
+                            </div>
+        
+                            <!-- Email -->
+                            <label for="email">Email</label>
+                            <div class="inp">
+                                <input type="email" name="email" placeholder="name@example.com" style="border-radius: 10px; ">
+                            </div>
+        
+                            <!-- Password -->
+                            <label for="password">Password</label>
+                            <div class="inp">
+                                <input type="password" name="password" placeholder="min 8. charactres" style="
+                                border-radius: 10px;">
+                            </div>
+                            
+                            <label for="password">Confrom Password</label>
+                            <div class="inp">
+                                <input type="password" name="password2" placeholder="min 8. charactres" style="
+                                border-radius: 10px;">
+                            </div>
+                    <!-- Button -->
+                    <button
+                        style=" border-radius: 10px; position: relative; top: 20px; width: 504px !important; ">Signup and Continue</button>
+                    <p><a href="{% url 'singup' %}" style=" position: relative; top: 40px; left: 235px; text-align: center !important;">Back</a></p>
                 </form>
-
             </div>
 
         </div>

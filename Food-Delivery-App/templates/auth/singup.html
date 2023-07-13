@@ -43,7 +43,7 @@
                         ` or personal account</p>
                 </div>
 
-                <form>
+                <form method="post">
                     {% load static %}
                     <div class="restaurant" id="option1" data-changer="rest">
                         <div class="img">
@@ -51,6 +51,7 @@
                         </div>
                         <div class="content">
                             <label for="lang-1">Restaurant <br><span id="p-r">Manage your own Restaurant</span></label>
+                            <input type="hidden" value="restaurant" name="restaurant">
                         </div>
                     </div>
 
@@ -61,8 +62,8 @@
                             <img src="{% static 'img/cart/profile.png'%}" alt="img for demostratin" id="img2">
                         </div>
                         <div class="content">
-                            <label for="lang-2">Personal <br><span id="p-r">Keep your orders on one
-                                    place</span></label>
+                            <label for="lang-2">Personal <br><span id="p-r">Keep your orders on one place</span></label>
+                            <input type="hidden" value="personal" name="personal">
                         </div>
                     </div>
 

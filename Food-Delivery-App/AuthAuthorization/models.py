@@ -86,7 +86,8 @@ class customerAccountDetails(models.Model):
 
 
 #Restaurants Owners
-class AddRestaurant(models.Model):
+class AddNewRestaurant(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE,primary_key=True)
     name = models.CharField(max_length=100)
     logo = models.ImageField(upload_to='logos/', blank=True, null=True)
     bannar_img = models.ImageField(upload_to='banners/')

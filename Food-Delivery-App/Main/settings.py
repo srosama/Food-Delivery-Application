@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'Main.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'foodAppV2',
+        'NAME': 'foodappv3',
         'HOST':'127.0.0.1',
         'PORT':'3306',
         'USER':'root',

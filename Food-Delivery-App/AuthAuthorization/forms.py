@@ -14,7 +14,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.utils.text import capfirst
 from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
-
+from .models import AddNewRestaurant
 UserModel = get_user_model()
 
 
@@ -252,6 +252,12 @@ class AdminPasswordChangeForm(forms.Form):
     
 
 
+
+
+class addFormT(forms.ModelForm):
+    class Meta:
+        model = AddNewRestaurant
+        fields = '__all__'
 
 class UserCreationForm():
     ...
