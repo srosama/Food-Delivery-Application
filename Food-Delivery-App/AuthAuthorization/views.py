@@ -16,7 +16,7 @@ from rest_framework.authtoken.models import Token
 from django.contrib.auth.tokens import default_token_generator
 
 #Databases
-from .models import User, AddNewRestaurant
+from .models import User, AddNewRestaurantV2
 from .models import User, customerAccountDetails
 
 #Decoretors
@@ -59,7 +59,7 @@ from django.contrib.auth.models import Group
 
 class test(TemplateView):
     def get(self, request):
-        addRest= AddNewRestaurant
+        addRest= AddNewRestaurantV2
 
         user = User.objects.filter(email=request.user.email)
         print(user)
@@ -81,11 +81,39 @@ def userMainAccount(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['restaurantsOwners'])
 def addNewRestaurant(request):
-    # form = addFormT()
-    # context = {'form':form}
-    return render(request, 'auth/restaurantsOwners/auth/restaurant-details.html', context=context)
+
+    if request.method == 'POST':
+        # Insert the Authncated user to the new restaurant
+        auth_user = request.user.email
+        USERInster = User.objects.get(email=auth_user)
+
+        Rname = request.POST['res-name']
+        Rlogo = request.POST['res-logo']
+        Rbannar = request.POST['res-bannar']
+
+        Rtime_for_delivery = request.POST['res-time_for_delivery']
+        Ropeing = request.POST['res-opening_time']
+        Rclosing = request.POST['res-closing_time']
+        Rdescription = request.POST['res-description']
+
+        R_priceMax = request.POST['res-Pmax']
+        R_priceMin = request.POST['res-Pmin']
+        R_catagory = request.POST['res-catagory']
+
+   
+
+        #Save it to the database
+        new_restaurant = AddNewRestaurantV2.objects.create(user=USERInster, name=Rname, logo=Rlogo, bannar_img=Rbannar, 
+                                                         description=Rdescription,time_for_delivery=Rtime_for_delivery,price_Max=R_priceMax,price_Min=R_priceMin,
+                                                         category=R_catagory, opening_time=Ropeing,closing_time=Rclosing) 
+        new_restaurant.save()
+        print(R_catagory)
 
 
+
+
+
+    return render(request, 'auth/restaurantsOwners/auth/restaurant-details.html', )
 
 
 
@@ -119,14 +147,12 @@ class RegsterionAPI(APIView):
     def get(self, req):
         return render(req, 'auth/singup.html')
     def post(self, req):
-        whereR = req.POST
-        print(whereR)
-        # whereP = req.POST['personal']
-        # print(req.POST)
-        # if whereR == 'restaurant':
-        #     return redirect('basic-restaurant-regsterion')
-        # if whereP == 'personal':
-        #     return redirect('singup-details')
+        where = req.POST['createAccount']    
+        print(req.POST)
+        if where == 'restaurant':
+            return redirect('basic-restaurant-regsterion')
+        elif where == 'personal':
+            return redirect('singup-details')
     
         return HttpResponse(req.POST)
 class RegsterionDetailsAPI(APIView):

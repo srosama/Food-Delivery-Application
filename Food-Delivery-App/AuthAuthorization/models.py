@@ -8,6 +8,8 @@ from rest_framework.authtoken.models import Token
 from django.conf import settings
 from django_countries.fields import CountryField
 
+from django.db.models.signals import post_save
+
 #Build a customer > phone, full-name, img
 
 class CustomUserManger(UserManager):
@@ -86,8 +88,9 @@ class customerAccountDetails(models.Model):
 
 
 #Restaurants Owners
-class AddNewRestaurant(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE,primary_key=True)
+class AddNewRestaurantV2(models.Model):
+    id_Restaurant = models.AutoField(primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     logo = models.ImageField(upload_to='logos/', blank=True, null=True)
     bannar_img = models.ImageField(upload_to='banners/')
@@ -103,3 +106,10 @@ class AddNewRestaurant(models.Model):
     def __str__(self):
         return self.name
     
+
+# def create_restaurant(sender, instance, created, **kwargs):
+#     if created:
+#         restaurant = AddNewRestaurantV2(user=instance)
+#         restaurant.save()
+
+# post_save.connect(create_restaurant, sender=User)
