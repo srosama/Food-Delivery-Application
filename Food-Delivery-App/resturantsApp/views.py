@@ -7,5 +7,5 @@ from AuthAuthorization.models import *
 #resturantsList Show all resturants in the database
 class resturantsList(ListView):
     def get(self, request):
-        resturants = AddNewRestaurant.objects.all()
+        resturants = AddNewRestaurantV2.objects.all()
         return render(request,'resturants/resturantsList.html', {'resturants': resturants})

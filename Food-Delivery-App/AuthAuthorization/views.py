@@ -81,39 +81,41 @@ def userMainAccount(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['restaurantsOwners'])
 def addNewRestaurant(request):
-
+    form = addFormT(request.POST)
+    context = {'form':form}
     if request.method == 'POST':
-        # Insert the Authncated user to the new restaurant
-        auth_user = request.user.email
-        USERInster = User.objects.get(email=auth_user)
+        if form.is_valid():
+            # Insert the Authncated user to the new restaurant
+            auth_user = request.user.email
+            USERInster = User.objects.get(email=auth_user)
 
-        Rname = request.POST['res-name']
-        Rlogo = request.POST['res-logo']
-        Rbannar = request.POST['res-bannar']
+            Rname = request.POST['res-name']
+            Rlogo = request.POST['logos']
+            Rbannar = request.POST['bannars']
 
-        Rtime_for_delivery = request.POST['res-time_for_delivery']
-        Ropeing = request.POST['res-opening_time']
-        Rclosing = request.POST['res-closing_time']
-        Rdescription = request.POST['res-description']
+            Rtime_for_delivery = request.POST['res-time_for_delivery']
+            Ropeing = request.POST['res-opening_time']
+            Rclosing = request.POST['res-closing_time']
+            Rdescription = request.POST['res-description']
 
-        R_priceMax = request.POST['res-Pmax']
-        R_priceMin = request.POST['res-Pmin']
-        R_catagory = request.POST['res-catagory']
+            R_priceMax = request.POST['res-Pmax']
+            R_priceMin = request.POST['res-Pmin']
+            R_catagory = request.POST['res-catagory']
 
-   
+    
 
-        #Save it to the database
-        new_restaurant = AddNewRestaurantV2.objects.create(user=USERInster, name=Rname, logo=Rlogo, bannar_img=Rbannar, 
-                                                         description=Rdescription,time_for_delivery=Rtime_for_delivery,price_Max=R_priceMax,price_Min=R_priceMin,
-                                                         category=R_catagory, opening_time=Ropeing,closing_time=Rclosing) 
-        new_restaurant.save()
-        print(R_catagory)
-
-
-
+            #Save it to the database
+            new_restaurant = AddNewRestaurantV2.objects.create(user=USERInster, name=Rname, logo=Rlogo, bannar_img=Rbannar, 
+                                                            description=Rdescription,time_for_delivery=Rtime_for_delivery,price_Max=R_priceMax,price_Min=R_priceMin,
+                                                            category=R_catagory, opening_time=Ropeing,closing_time=Rclosing) 
+            new_restaurant.save()
+            print(R_catagory)
 
 
-    return render(request, 'auth/restaurantsOwners/auth/restaurant-details.html', )
+
+
+
+    return render(request, 'auth/restaurantsOwners/auth/restaurant-details.html',context )
 
 
 

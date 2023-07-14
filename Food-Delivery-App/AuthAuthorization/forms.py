@@ -255,9 +255,18 @@ class AdminPasswordChangeForm(forms.Form):
 
 
 class addFormT(forms.ModelForm):
+    logos = forms.ImageField(
+        max_length=254,
+        widget=forms.EmailInput(attrs={ "class":"inp", "name":"res-logo", "type":"file", "accept":"image/*"}),
+    )
+
+    bannars = forms.ImageField(
+        max_length=254,
+        widget=forms.EmailInput(attrs={ "class":"inp", "name":"res-bannar", "type":"file", "accept":"image/*"}),
+    )
     class Meta:
         model = AddNewRestaurantV2
-        fields = '__all__'
+        fields = ['logos','bannars']
 
 class UserCreationForm():
     ...

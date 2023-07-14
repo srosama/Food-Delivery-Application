@@ -18,13 +18,7 @@
     {% load static %}
 </head>
 
-    <!--  
-    price_Max 
-    price_Min 
-    category
-    created_at 
-    opening_time 
-    closing_time  -->
+
 
 <body>
 
@@ -37,10 +31,7 @@
                     <div class="tab">
                       <label id="res-label">Rstaurant Name</label>
                       <p><input placeholder="Rstaurant name" oninput="this.className = ''" name="res-name"></p>
-                      <label id="res-label">Rstaurant logo</label>
-                      <p><input type="file" oninput="this.className = ''" name="res-logo"></p>
-                      <label id="res-label">Rstaurant bannar</label>
-                      <p><input type="file" oninput="this.className = ''" name="res-bannar"></p>
+                      <p>{{form}}</p>
                     </div>
                     
                     <div class="tab">

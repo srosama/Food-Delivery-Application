@@ -87,6 +87,10 @@ class customerAccountDetails(models.Model):
 
 
 
+def image_upload_to(instance, filename):
+    fpath = pathlib.Path(settings.MEDIA_ROOT)
+    new_fname = str(uuid)
+
 #Restaurants Owners
 class AddNewRestaurantV2(models.Model):
     id_Restaurant = models.AutoField(primary_key=True)
