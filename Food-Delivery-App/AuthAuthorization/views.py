@@ -1,6 +1,6 @@
 from typing import Any
 from django.shortcuts import render, redirect
-
+import time
 #Auth
 from django.contrib.auth import authenticate, login, logout 
 from django.contrib.auth import login as auth_login
@@ -112,7 +112,9 @@ def addNewRestaurant(request):
             user=USERInster
         )
         new_restaurant.save()
-        return HttpResponse("save")
+        time.sleep(0.3)
+        messages.success(request, f'New Restaurant Created {Rname}')
+        return redirect('main_dashboard')
 
     return render(request, 'auth/restaurantsOwners/auth/restaurant-details.html' )
 

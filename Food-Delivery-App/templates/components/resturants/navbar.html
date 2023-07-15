@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Css File -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+        <!-- Bootstarp  -->
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <!-- fontaswaon cdn  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap" rel="stylesheet">        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <nav style="padding: 0px !important; "> 
+        <div class="container" style="padding-top: 0px !important;">
+            <h1 class="logo"><a href="{% url 'home' %}" style="color: black; text-decoration: none;">Food <br><span style="color: rgb(78, 96, 255);">Deleviry</span>  <span style="color: gray; opacity: 0.5; font-size: 12px;"> | for owners</span></a></h1>
+
+            <div class="button">
+                {% if user.is_authenticated%}
+                <p><a href="{% url 'resturantslist' %}">Dashboard</a></p>
+                <p><a href="#"></a>Orders</p>
+                <p><a href="#"></a>Customers</p>
+                <p><a href="#"></a>Menu</p>
+                <p><a href="#"></a>Promotions</p>
+                <div class="buton">
+                    <button class="btn"><a href="" id="notfic"> <i class="fa-regular fa-bell" style="width: 20px; color: rgb(78, 96, 255) !important; font-size: 19px !important; position: relative; top: 4px;"></i></a></button>
+                    <div class="dropdown">
+                        <button class="btn"><div id="logo-res"></div></button>
+                        <div class="dropdown-content">
+                            <a href="#">{{user.email}}</a>
+                            <a href="{% url 'userMain' %}">Manage Account</a>
+                            <a href="{%url 'logout'%}" style="color: rgb(255, 92, 96);">Log out</a>
+                        </div>
+                    </div>
+                </div> 
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+  
+</body>
+
+<style>
+ #logo-res{
+    background-image: url('{{logo.logo.url}}'); 
+    background-size: cover ;
+    background-position: center;
+    width:40px ;
+    height: 40px;
+    border-radius: 10px;
+}
+#notfic{
+    position: relative;
+    bottom: 14px;
+}
+</style>
+</html>

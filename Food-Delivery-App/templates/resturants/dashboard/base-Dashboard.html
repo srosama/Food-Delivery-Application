@@ -1,1 +1,71 @@
-<h1></h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resturant main dashboard</title>
+    <!-- css link -->
+    {% load static%}
+    <link rel="stylesheet" href="{%static 'css/resturant/base.css'%}">
+
+</head>
+<body>
+    {% include "components/resturants/navbar.html" %}
+<!-- messages  -->
+{% if messages %}
+{%for message in messages%}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show align-top" role="alert">
+    {{message}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="background-color: transparent; border: none; position: absolute; right: 20px; width: 200px;">
+    <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<br>
+{% endfor %}
+{% endif %}
+
+<div class="boss">
+
+    <h1 id="title-header">Dashboard</h1>
+    <div class="cont-dash">
+        <div class="notiction-cont">
+            <div class="box">
+                <div class="img"><img src="{% static 'img/cart/orang-bag.png'%}" alt="img for demonstrating" id="img1"></div>
+                <div class="title">
+                    <p>9,273</p>
+                    <p id="order-des">Orders received</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="notiction-cont2">
+            <div class="box">
+                <div class="img2"><img src="{% static 'img/cart/trk.png'%}" alt="img for demonstrating" id="img1"></div>
+                <div class="title">
+                    <p>9,273</p>
+                    <p id="order-des">Orders deleviered</p>
+                </div>
+            </div>
+        </div>
+    
+    
+        <div class="notiction-cont">
+            <div class="box">
+                <div class="img3"><img src="{% static 'img/cart/chart.png'%}" alt="img for demonstrating" id="img1"></div>
+                <div class="title">
+                    <p>$ 4,342.91</p>
+                    <p id="order-des">Revenue today</p>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+    <div class="order-revenue">
+        
+    </div>
+</div>
+
+</body>
+</html>
+
