@@ -27,7 +27,7 @@ urlpatterns = [
     path('add_restaurant/', addNewRestaurant, name='addnewrstaurant'),
 
     #Test
-    path('testForm/', test.as_view(), name='test'),
+    path('testForm/', test, name='test'),
 ]
 
 if settings.DEBUG:

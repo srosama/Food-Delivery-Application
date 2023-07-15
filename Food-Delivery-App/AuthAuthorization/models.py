@@ -7,7 +7,8 @@ from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
 from django.conf import settings
 from django_countries.fields import CountryField
-
+import uuid
+import pathlib
 from django.db.models.signals import post_save
 
 #Build a customer > phone, full-name, img
@@ -89,27 +90,34 @@ class customerAccountDetails(models.Model):
 
 def image_upload_to(instance, filename):
     fpath = pathlib.Path(settings.MEDIA_ROOT)
-    new_fname = str(uuid)
+    new_fname = str(uuid.uuid1())
+    return f""
 
 #Restaurants Owners
 class AddNewRestaurantV2(models.Model):
     id_Restaurant = models.AutoField(primary_key=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
-    logo = models.ImageField(upload_to='logos/', blank=True, null=True)
-    bannar_img = models.ImageField(upload_to='banners/')
+
+    logo = models.ImageField(blank=True)
+    bannar_img = models.ImageField(blank=True)
+
     description = models.TextField()
     time_for_delivery = models.PositiveIntegerField()
     price_Max = models.DecimalField(max_digits=8, decimal_places=2)
     price_Min = models.DecimalField(max_digits=8, decimal_places=2)
     category = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
-    opening_time = models.TimeField()
-    closing_time = models.TimeField()
+
 
     def __str__(self):
         return self.name
     
+
+class testImg(models.Model):
+    name = models.CharField(max_length=100)
+    testImg = models.ImageField(blank=True)
+
 
 # def create_restaurant(sender, instance, created, **kwargs):
 #     if created:

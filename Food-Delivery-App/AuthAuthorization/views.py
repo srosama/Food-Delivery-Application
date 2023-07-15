@@ -16,7 +16,7 @@ from rest_framework.authtoken.models import Token
 from django.contrib.auth.tokens import default_token_generator
 
 #Databases
-from .models import User, AddNewRestaurantV2
+from .models import User, AddNewRestaurantV2, testImg
 from .models import User, customerAccountDetails
 
 #Decoretors
@@ -33,7 +33,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.views.generic.base import TemplateView
 
 #Froms
-from .forms import PasswordResetForm, SetPasswordForm, addFormT
+from .forms import PasswordResetForm, SetPasswordForm, addFormT, testImgsForm
 from urllib.parse import urlparse, urlunparse
 from django.conf import settings
 
@@ -57,16 +57,18 @@ from django.contrib.auth.models import Group
 
 
 
-class test(TemplateView):
-    def get(self, request):
-        addRest= AddNewRestaurantV2
+    
 
-        user = User.objects.filter(email=request.user.email)
-        print(user)
-        form = addFormT
-        context = {'form':form, 'email':user}
+def test(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        img = request.FILES['img']
+        testimg = testImg.objects.create(name=name, testImg=img)
+        testimg.save()
+        return HttpResponse("save")
+    return render(request, 'test.html', )
 
-        return render(request, 'test.html', context=context)
+
 
 #User Account Mangment
 @login_required(login_url='login')
@@ -81,41 +83,38 @@ def userMainAccount(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['restaurantsOwners'])
 def addNewRestaurant(request):
-    form = addFormT(request.POST)
-    context = {'form':form}
+    auth_user = request.user.email
+    USERInster = User.objects.get(email=auth_user)
+
     if request.method == 'POST':
-        if form.is_valid():
-            # Insert the Authncated user to the new restaurant
-            auth_user = request.user.email
-            USERInster = User.objects.get(email=auth_user)
+        Rname = request.POST['res-name']
 
-            Rname = request.POST['res-name']
-            Rlogo = request.POST['logos']
-            Rbannar = request.POST['bannars']
+        Rtime_for_delivery = request.POST['res-time_for_delivery']
 
-            Rtime_for_delivery = request.POST['res-time_for_delivery']
-            Ropeing = request.POST['res-opening_time']
-            Rclosing = request.POST['res-closing_time']
-            Rdescription = request.POST['res-description']
+        Rdescription = request.POST['res-description']
 
-            R_priceMax = request.POST['res-Pmax']
-            R_priceMin = request.POST['res-Pmin']
-            R_catagory = request.POST['res-catagory']
+        R_priceMax = request.POST['res-Pmax']
+        R_priceMin = request.POST['res-Pmin']
+        R_catagory = request.POST['res-catagory']
 
-    
+        Rlogo = request.FILES['res-logo']
+        Rbannar = request.FILES['bannars']
+        
+        new_restaurant = AddNewRestaurantV2.objects.create(
+            name=Rname,
+            logo=Rlogo,
+            bannar_img=Rbannar,
+            time_for_delivery=Rtime_for_delivery,
+            description=Rdescription,
+            price_Max=R_priceMax,
+            price_Min=R_priceMin,
+            category=R_catagory,
+            user=USERInster
+        )
+        new_restaurant.save()
+        return HttpResponse("save")
 
-            #Save it to the database
-            new_restaurant = AddNewRestaurantV2.objects.create(user=USERInster, name=Rname, logo=Rlogo, bannar_img=Rbannar, 
-                                                            description=Rdescription,time_for_delivery=Rtime_for_delivery,price_Max=R_priceMax,price_Min=R_priceMin,
-                                                            category=R_catagory, opening_time=Ropeing,closing_time=Rclosing) 
-            new_restaurant.save()
-            print(R_catagory)
-
-
-
-
-
-    return render(request, 'auth/restaurantsOwners/auth/restaurant-details.html',context )
+    return render(request, 'auth/restaurantsOwners/auth/restaurant-details.html' )
 
 
 

@@ -8,21 +8,20 @@
   <div class="resturants">
   {% for i in resturants%}
     <style>
-      .img-card{
-        border-radius: 20px;
-        /* margin-bottom: 15px; */
-        border-radius: 15px 15px 0px 0px;
-        width: 100%;
-        height: 170px;
-        background-image: url('/static/img/res-banners/burger.jpg'); 
-        background-image: url('/media/{{i.bannar_img}}'); 
-        background-size: cover ;
-        background-position: center;
-    }
+ .img-card{{i.id_Restaurant}}{
+    border-radius: 20px;
+    margin-bottom: 15px; 
+    border-radius: 15px 15px 0px 0px;
+    width: 100%;
+    height: 150px;
+    background-image: url('/images/{{i.bannar_img}}'); 
+    background-size: cover ;
+    background-position: center;
+}
     </style>
       <!-- Card 1 -->
       <div class="card">
-        <div class="img-card"> </div>
+        <div class="img-card{{i.id_Restaurant}}"></div>
         <div class="content-text-cards">
   <div class="title">
             <h2>{{i.name | title}} <br><span id="h1-span">{{i.description}}</span></h2>
@@ -30,7 +29,7 @@
           </div>
           <div class="other">
             <p id="time"><i><i class="fa-regular fa-clock"></i></i> {{i.time_for_delivery}}min • ${{i.price_Max | floatformat}}max - ${{i.price_Min | floatformat}}min</p>
-            <button id="category-card" style="color: rgb(174, 174, 174); "><img src="/media/{{i.logo}}" width="16px" id="imgBTN"> {{i.category}}</button>
+            <button id="category-card" style="color: rgb(174, 174, 174); "><img src="/images/{{i.logo}}" width="16px" id="imgBTN"> {{i.category}}</button>
           </div>
         </div>
       </div>

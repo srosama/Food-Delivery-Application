@@ -17,6 +17,7 @@ from django.utils.translation import gettext_lazy as _
 from .models import AddNewRestaurantV2
 UserModel = get_user_model()
 
+from .models import testImg
 
 def _unicode_ci_compare(s1, s2):
     """
@@ -255,18 +256,22 @@ class AdminPasswordChangeForm(forms.Form):
 
 
 class addFormT(forms.ModelForm):
-    logos = forms.ImageField(
-        max_length=254,
-        widget=forms.EmailInput(attrs={ "class":"inp", "name":"res-logo", "type":"file", "accept":"image/*"}),
-    )
 
-    bannars = forms.ImageField(
-        max_length=254,
-        widget=forms.EmailInput(attrs={ "class":"inp", "name":"res-bannar", "type":"file", "accept":"image/*"}),
-    )
     class Meta:
         model = AddNewRestaurantV2
-        fields = ['logos','bannars']
+        fields = '__all__'
+        # exclude = ['user']
+
+
+
+
+class testImgsForm(forms.ModelForm):
+    name = forms.CharField(max_length=100)
+    testImg = forms.ImageField()
+    class Meta:
+        model = testImg
+        fields = ['name', 'testImg']
+
 
 class UserCreationForm():
     ...

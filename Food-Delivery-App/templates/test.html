@@ -12,10 +12,12 @@
         {{i}}
     {% endfor %}
 <br>
-<form method="post">
-    {{form}}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" name="name" id="">
+    <input type="file" name="img" id="img">
+    <input type="submit" value="Submit">
 </form>
 
-    <input type="image"  alt="Submit" style="float:right" width="48" height="48"> 
 </body>
 </html>
