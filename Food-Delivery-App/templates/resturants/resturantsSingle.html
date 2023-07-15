@@ -1,1 +1,202 @@
-<h1>{{restaurantData}}</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{restaurantData.name}}</title>
+    {% load static %}
+    <!-- Links -->
+    <link rel="stylesheet" href="{%static 'css/resturant/resturantSingle.css'%}">
+</head>
+<body>
+    {% include "components/navbar.html" %}
+
+
+    <div class="headerOFresturnt">
+        <div class="main-cont">
+            <div class="Restlogo"><img src="{{restaurantData.logo.url}}" alt=""></div>
+            <div class="text-content">
+                <h1>{{restaurantData.name}}</h1>
+                <p>{{restaurantData.description}}</p>
+                <p id="time"><i><i class="fa-regular fa-clock"></i></i> {{restaurantData.time_for_delivery}}min • ${{restaurantData.price_Max | floatformat}}max - ${{restaurantData.price_Min | floatformat}}min</p>
+            </div>
+      </div>
+
+    </div>
+
+        <div class="menu">
+            <div class="item-cont">
+    
+                <div class="item">
+                    <div class="img-item"></div>
+                    <div class="text-contetn-item">
+                        <h1>Spicy Lays Strips Meal</h1>
+                        <p style="color: gray;">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+                    <div class="bottom">
+                        <div class="price-item"><h1>$ 16.80</h1></div>
+                        <div class="addToCart"> <button class="btn"><a href=""><i class="fa-solid fa-plus" style="width: 20px; color: rgb(78, 96, 255) !important; font-size: 19px !important; position: relative; top: 4px;"></i></a></button></div>
+                    </div>
+                </div>
+      
+                <div class="item">
+                    <div class="img-item1"></div>
+                    <div class="text-contetn-item">
+                        <h1>Spicy Twister</h1>
+                        <p style="color: gray;">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+                    <div class="bottom">
+                        <div class="price-item"><h1>$ 16.80</h1></div>
+                        <div class="addToCart"> <button class="btn"><a href=""><i class="fa-solid fa-plus" style="width: 20px; color: rgb(78, 96, 255) !important; font-size: 19px !important; position: relative; top: 4px;"></i></a></button></div>
+                    </div>
+                </div>
+                
+    
+                <div class="item">
+                    <div class="img-item2"></div>
+                    <div class="text-contetn-item">
+                        <h1>Spicy Lay's Twister Meal</h1>
+                        <p style="color: gray;">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+                    <div class="bottom">
+                        <div class="price-item"><h1>$ 16.80</h1></div>
+                        <div class="addToCart"> <button class="btn"><a href=""><i class="fa-solid fa-plus" style="width: 20px; color: rgb(78, 96, 255) !important; font-size: 19px !important; position: relative; top: 4px;"></i></a></button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviews">
+                <div class="header">
+                    <div class="text-content-header">
+                        <p style="font-weight: 500; font-size: 15px;">Overall Rating</p>
+                        <div class="other" >
+                            <p><span style="color: rgb(78, 96, 255); font-size: 20px;">4.2</span> <i class="fa-solid fa-star" style="color: rgb(78, 96, 255); font-size: 11px;" ></i>
+                                   <i class="fa-solid fa-star" style="color: rgb(78, 96, 255); font-size: 11px;"></i>
+                                   <i class="fa-solid fa-star" style="color: rgb(78, 96, 255); font-size: 11px;"></i>
+                                   <i class="fa-solid fa-star" style="color: rgb(78, 96, 255); font-size: 11px;"></i>
+                                   <i class="fa-solid fa-star" style="color: gray; opacity: 0.5; font-size: 11px;"></i>
+                                   <span style="color: gray; opacity: 0.5; font-size: 11px;">3 votes</span></p>
+                        </div>
+                    </div>
+                    <div class="leave-review"><button>Leave review</button></div>
+                </div>
+
+                <button id="sort"><span style="color: gray; opacity: 0.5;">Sort by: </span>Newset first <i class="fa-solid fa-angle-down" style="color: gray; opacity: 0.5;" ></i></button>
+
+                <div class="profileReview">
+                    <div class="header-review">
+                        <div class="img-review" ></div>
+                       <div class="text-content-time">
+                            <div class="name-deatils">
+                                <p>Savannah Miles</p>
+                                <div class="stars">
+                                    <i class="fa-solid fa-star" style="color: rgb(78, 96, 255); font-size: 11px;"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(78, 96, 255); font-size: 11px;"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(78, 96, 255); font-size: 11px;"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(78, 96, 255); font-size: 11px;"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(78, 96, 255); font-size: 11px;"></i>
+                                    <span style="color: rgb(78, 96, 255); font-size: 11px;">10 days ago</span>
+                                </div>
+                            </div>
+                        </div> 
+
+    
+                    </div>
+                    
+                    <div class="other-review">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A voluptatem blanditiis</p>
+                        <div class="likes">
+                            <i class="fa-regular fa-thumbs-up" id="like"></i>14
+                            <i class="fa-regular fa-thumbs-down" id="like"></i>4
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="profileReview">
+                    <div class="header-review">
+                        <div class="img-review" ></div>
+                       <div class="text-content-time">
+                            <div class="name-deatils">
+                                <p>Savannah Miles</p>
+                                <div class="stars">
+                                    <i class="fa-solid fa-star" style="color: rgb(78, 96, 255); font-size: 11px;"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(78, 96, 255); font-size: 11px;"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(78, 96, 255); font-size: 11px;"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(78, 96, 255); font-size: 11px;"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(78, 96, 255); font-size: 11px;"></i>
+                                    <span style="color: rgb(78, 96, 255); font-size: 11px;">10 days ago</span>
+                                </div>
+                            </div>
+                        </div> 
+
+    
+                    </div>
+                    
+                    <div class="other-review">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A voluptatem blanditiis placeat reprehenderit natus magnam perspiciatis odit facilis expedita minima dolore praesentium, earum explicabo voluptates quo dicta rerum rem suscipit!</p>
+                        <div class="likes">
+                            <i class="fa-regular fa-thumbs-up" id="like"></i>14
+                            <i class="fa-regular fa-thumbs-down" id="like"></i>4
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+</body>
+
+<style>
+    .headerOFresturnt{
+        border-radius: 15px 15px 0px 0px;
+        width: 100%;
+        height: 250px;
+        background-image: url('/images/{{restaurantData.bannar_img}}'); 
+        background-size: cover ;
+        background-position: center;
+}
+
+
+.img-item{
+    border-radius: 15px 15px 0px 0px;
+    width: 150px;
+    height:150px;
+    background-image: url("/static/img/products/product.png"); 
+    background-size: cover ;
+    background-position: center;
+    /* position: relative;
+    left: 110px; */
+}
+.img-item1{
+    border-radius: 15px 15px 0px 0px;
+    width: 150px;
+    height:150px;
+    background-image: url("/static/img/products/pro3.png"); 
+    background-size: cover ;
+    background-position: center;
+    /* position: relative;
+    left: 110px; */
+}
+.img-item2{
+    border-radius: 15px 15px 0px 0px;
+    width: 150px;
+    height:150px;
+    background-image: url("/static/img/products/prod2.png"); 
+    background-size: cover ;
+    background-position: center;
+    /* position: relative;
+    left: 110px; */
+}
+
+.img-review{
+    border-radius: 50%;
+    width: 60px;
+    height:60px;
+    background-image: url("/static/img/profile.jpg"); 
+    background-size: cover ;
+    background-color: rgb(146, 146, 146);
+    background-position: center;
+}
+</style>
+</html>

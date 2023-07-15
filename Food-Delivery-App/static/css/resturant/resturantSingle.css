@@ -1,0 +1,166 @@
+nav{
+    border-bottom: none !important;
+}
+
+.headerOFresturnt{
+    width: 100%;
+    background-color: #f7f7f9;
+     
+}
+
+.main-cont{
+    justify-content: left;
+    display: flex;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 4.3rem;
+    padding-bottom: 4rem;
+    gap: 50px;
+    position: relative;
+    top: 190px;
+
+}
+
+.Restlogo > img{
+
+    width: 200px;
+
+}
+
+.text-content > p{
+
+    color: gray;
+    opacity: 0.5;
+    position: relative;
+    bottom:  20px;
+}
+
+.map{
+    position: relative;
+    left: 380px;
+}
+
+
+.menu{
+    padding-top: 15rem !important;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    display: flex;
+    gap: 20px;
+}
+
+.item-cont{
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    justify-content: center;
+}
+
+.item{
+    border-radius: 25px;
+    width: 400px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border: 1px solid #ccc;
+}
+
+.bottom{
+    display: flex;
+    justify-content: space-between;
+}
+
+.addToCart{
+    position: relative;
+    top: 30px;
+}
+
+.reviews{
+    border: 1px solid #ccc;
+    border-radius: 20px 20px 0px 0px;
+    width: 400px;
+    justify-content: center;
+}
+
+.header{
+    border: 1px solid #ccc;
+    border-radius: 15px 15px 0px 0px;
+    display: flex !important;
+    width: 400px;
+    height: 70px;
+    justify-content: space-between;
+
+}
+
+.text-content-header{
+    padding-left: 15px;
+    position: relative;
+    bottom: 5px;
+}
+
+
+.other{
+    position: relative;
+    bottom: 15px;
+}
+
+.leave-review > button{
+    border: 1px rgb(78, 96, 255) solid;
+    background: none;
+    color: rgb(78, 96, 255);
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+}
+
+#sort{
+    border: 1px gray solid;
+    background: none;
+    color: gray !important;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    left: 100px;
+    top: 30px;
+    margin-bottom: 20px;
+}
+
+.profileReview{
+    padding-top: 3rem !important;
+    padding: 16px;
+    border-bottom: 1px solid #ccc;
+}
+
+.header-review{
+    display: flex !important;
+}
+.stars{
+    position: relative;
+    bottom: 20px;
+
+}
+
+.text-content-time{
+    position: relative;
+    bottom: 5px;
+    padding-left: 20px;
+}
+.other-review{
+    position: relative;
+    padding-left: 20px;
+    padding-right: 20px;
+    bottom: 12px;
+}
+
+#like{
+    color: black;
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 30px;
+}
