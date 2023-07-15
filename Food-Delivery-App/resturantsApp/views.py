@@ -26,6 +26,10 @@ class resturantsSingle(TemplateView):
         context = {'restaurantData': single_restaurant}
         return render(request, 'resturants/resturantsSingle.html', context=context)
 
+#Add menu items
+class add_new_menu(CreateView):
+    def get(self, request):
+        return render(request,'resturants/resturantsMenu.html')
 #Tests
 def navbarCool(request):
     user = request.user
