@@ -20,7 +20,11 @@ class Main_dashboard(TemplateView):
         return render(request,'resturants/dashboard/base-Dashboard.html',context=context)
 
 
-
+class resturantsSingle(TemplateView):
+    def get(self, request, id):
+        single_restaurant = AddNewRestaurantV2.objects.get(id_Restaurant=id)
+        context = {'restaurantData': single_restaurant}
+        return render(request, 'resturants/resturantsSingle.html', context=context)
 
 #Tests
 def navbarCool(request):

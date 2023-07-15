@@ -20,18 +20,20 @@
 }
     </style>
       <!-- Card 1 -->
-      <div class="card">
-        <div class="img-card{{i.id_Restaurant}}"></div>
-        <div class="content-text-cards">
-  <div class="title">
-            <h2>{{i.name | title}} <br><span id="h1-span">{{i.description}}</span></h2>
-            <i class="fa-solid fa-star" id="starRev" style="font-size:11px ; position: relative; top: 17px; color: rgb(255, 215, 0);">                 <span style="color: black; font-weight: 500;">4.5</span></i>
-          </div>
-          <div class="other">
-            <p id="time"><i><i class="fa-regular fa-clock"></i></i> {{i.time_for_delivery}}min • ${{i.price_Max | floatformat}}max - ${{i.price_Min | floatformat}}min</p>
-            <button id="category-card" style="color: rgb(174, 174, 174); "><img src="/images/{{i.logo}}" width="16px" id="imgBTN"> {{i.category}}</button>
+      <a href="http://127.0.0.1:8000/app/resturant/{{i.id_Restaurant}}" target="_blank" style="text-decoration: none;">
+        <div class="card">
+          <div class="img-card{{i.id_Restaurant}}"></div>
+          <div class="content-text-cards">
+    <div class="title">
+              <h2>{{i.name | title}} <br><span id="h1-span">{{i.description}}</span></h2>
+              <i class="fa-solid fa-star" id="starRev" style="font-size:11px ; position: relative; top: 17px; color: rgb(255, 215, 0);">                 <span style="color: black; font-weight: 500;">4.5</span></i>
+            </div>
+            <div class="other">
+              <p id="time"><i><i class="fa-regular fa-clock"></i></i> {{i.time_for_delivery}}min • ${{i.price_Max | floatformat}}max - ${{i.price_Min | floatformat}}min</p>
+              <button id="category-card" style="color: rgb(174, 174, 174); "><img src="/images/{{i.logo}}" width="16px" id="imgBTN"> {{i.category}}</button>
+            </div>
           </div>
         </div>
-      </div>
+      </a>
   {% endfor %}
 </div>
