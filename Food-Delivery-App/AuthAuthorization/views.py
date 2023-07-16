@@ -149,15 +149,16 @@ class RegsterionAPI(APIView):
 
     def get(self, req):
         return render(req, 'auth/singup.html')
+    
     def post(self, req):
         where = req.POST['createAccount']    
         print(req.POST)
-        if where == 'restaurant':
+        if req.POST['createAccount2'] == 'restaurant':
             return redirect('basic-restaurant-regsterion')
         elif where == 'personal':
             return redirect('singup-details')
     
-        return HttpResponse(req.POST)
+        return HttpResponse(f"Data: {where}")
 class RegsterionDetailsAPI(APIView):
     def get(self, req):
         return render(req, 'auth/user-details.html')

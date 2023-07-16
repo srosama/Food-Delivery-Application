@@ -1,4 +1,4 @@
-<!-- hERE THE USER aUTH AND CREATE aCCOUNT aAND aDD to Resturna Owners Group -->    
+<!-- hERE THE USER aUTH AND CREATE aCCOUNT aAND aDD to Resturna Owners Group -->
 
 
 
@@ -29,7 +29,6 @@
             <p>Let the Best of International Business News come to you.</p>
         </div>
 
-
         <div class="box-login" style="width: 60% !important;     background-color: #ffffff;">
             <h1 style="font-size: 20px; position: relative; left: 90px; top: 30px; cursor: pointer;  " id="logo"><a
                     href="{%url 'home'%}" style="text-decoration:  none; color: black;">Food</a> <br> <span
@@ -51,7 +50,7 @@
                         </div>
                         <div class="content">
                             <label for="lang-1">Restaurant <br><span id="p-r">Manage your own Restaurant</span></label>
-                            <input type="radio" value="restaurant" name="createAccount" checked >
+                            <input type="hidden" id="retta" name="createAccount2">
                         </div>
                     </div>
 
@@ -63,7 +62,7 @@
                         </div>
                         <div class="content">
                             <label for="lang-2">Personal <br><span id="p-r">Keep your orders on one place</span></label>
-                            <input type="radio" checked value="personal" name="createAccount">
+                            <input type="hidden" id="per" name="createAccount">
                         </div>
                     </div>
 
@@ -83,6 +82,8 @@
             const img1 = document.querySelector("#img1")
             const img2 = document.querySelector("#img2")
             const button = document.querySelector(".theButton")
+            const valtt = document.getElementById("retta")
+            const val2 = document.getElementById("per")
             button.disabled = true
             button.style.backgroundColor = "#eff0f3"
             button.style.boxShadow = 'none'
@@ -98,6 +99,7 @@
                         button.style.backgroundColor = "#4E60FF"
                         button.disabled = false
                         button.style.boxShadow = '1px 1px 10px rgb(78, 96, 255)'
+                        valtt.value = "restaurant"
                     } else if (val === "rest2") {
                         op2.style.borderColor = "#4F60FF"
                         op1.style.borderColor = "#eff0f3"
@@ -106,6 +108,7 @@
                         button.disabled = false
                         button.style.backgroundColor = "#4E60FF"
                         button.style.boxShadow = '1px 1px 10px rgb(78, 96, 255)'
+                        val2.value = "personal"
                     }
                 })
             })
