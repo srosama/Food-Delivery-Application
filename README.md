@@ -23,13 +23,12 @@ Technologies Used:
     *Cloud: AWS, Heroku, Railway
     *Geolocation Services: (soon)
     *Payment Gateway Integration: Strip (SOON)
+<h1>Project overview</h1>
 <img width="1062" alt="Screenshot 2023-07-16 101716" src="https://github.com/srosama/Food-Delivery-Application/assets/117456465/cd42650b-a2a1-4b1c-a730-beaa0e19833c">
 
-<h1>Project overview</h1><img width="1054" alt="Screenshot 2023-07-16 101816" src="https://github.com/srosama/Food-Delivery-Application/assets/117456465/0df56bff-6833-48f6-bd55-e48dc6d16263">
+<img width="1054" alt="Screenshot 2023-07-16 101816" src="https://github.com/srosama/Food-Delivery-Application/assets/117456465/0df56bff-6833-48f6-bd55-e48dc6d16263">
 
+<img width="1071" alt="Screenshot 2023-07-16 102454" src="https://github.com/srosama/Food-Delivery-Application/assets/117456465/88ae48e3-8cdb-491a-82a3-c64f1a70e36b">
 
+<img width="1063" alt="Screenshot 2023-07-16 102633" src="https://github.com/srosama/Food-Delivery-Application/assets/117456465/0251b350-0e39-4dd8-b707-8ff10602ea58">
 
-
-
-
-    
